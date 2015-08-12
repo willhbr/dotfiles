@@ -3,6 +3,9 @@
 current=$(pwd)
 
 # Fish
+if [ "$(which fish)" != "$SHELL" ]; then
+  chsh -s $(which fish)
+fi
 ln -fs $current/fish/config.fish ~/.config/fish
 
 # Vim
