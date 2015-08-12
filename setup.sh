@@ -4,7 +4,7 @@ current=$(pwd)
 
 # Fish
 if [ "$(which fish)" != "$SHELL" ]; then
-  sudo chsh -s $(which fish)
+  chsh -s $(which fish)
 fi
 ln -fs $current/fish/config.fish ~/.config/fish
 
