@@ -1,0 +1,51 @@
+### Pretty colours!
+export PS1="\[\033[0;36m\]\h \[\033[0;37m\](\W) "
+
+alias python="python3.4"
+alias py="python3.4"
+alias pip="pip3"
+alias wget="curl -O"
+alias gopi="gox -osarch=\"linux/arm\""
+alias gos3="gox -osarch=\"linux/amd64\""
+
+### Use Ruby 2
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby 2.1.2
+
+### finder command, handy?
+alias finder="open ."
+
+PATH="/Users/will/src/sdk/platform-tools:/usr/local/opt/openssl/bin:/usr/local/heroku/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH="/Users/will/Dropbox/golang/bin:$PATH"
+export GOPATH="/Users/will/Dropbox/golang"
+
+
+function db {
+	if [ "$1" = "mysql" ]
+	then
+	  mysql.server $2
+	else
+	  if [ "$1" = "pg" ]
+    then
+      if [ "$2" = "start" ]
+      then
+        pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+      else
+        pg_ctl -D /usr/local/var/postgres stop -s -m fast
+      fi
+    fi
+	fi
+}
+
+function mate {
+  if [ $# -gt 0 ]
+  then
+    /usr/local/bin/mate $@
+  else
+    /usr/local/bin/mate .
+  fi
+}
+
+function c {
+  gcc -std=c99 -Werror -Wall -g -o $1 $1.c
+}
