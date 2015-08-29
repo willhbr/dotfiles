@@ -17,13 +17,11 @@ set GOPATH "/Users/will/Dropbox/golang"
 function fish_prompt
   if [ $status = 0 ]
     set_color green
-    echo -n "^_^ "
+    echo -n "^_^"
   else
     set_color red
-    echo -n "x_x "
+    echo -n "x_x"
   end
-  set_color cyan
-  echo -n (hostname|cut -d . -f 1)
   set_color normal
   echo -n ' ('
   echo -n (prompt_pwd)
@@ -51,11 +49,11 @@ function fish_greeting
 end
 
 function db
-	if [ "$1" = "mysql" ]
-	  mysql.server $2
+	if [ "$argv[1]" = "mysql" ]
+	  mysql.server $argv[2]
 	else
-	  if [ "$1" = "pg" ]
-      if [ "$2" = "start" ]
+	  if [ "$argv[1]" = "pg" ]
+      if [ "$argv[2]" = "start" ]
         pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
       else
         pg_ctl -D /usr/local/var/postgres stop -s -m fast
@@ -64,14 +62,11 @@ function db
   end
 end
 
-function mate
-  if [ count $argv -gt 0 ]
-    /usr/local/bin/mate $argv
-  else
-    /usr/local/bin/mate .
-  end
+function c
+  gcc -std=c99 -Werror -Wall -g -o $argv[1] $argv[1].c
 end
 
-function c
-  gcc -std=c99 -Werror -Wall -g -o $1 $1.c
+function mkcd
+  mkdir -p $argv[1]
+  cd $argv[1]
 end
