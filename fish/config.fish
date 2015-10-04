@@ -1,14 +1,15 @@
 source /usr/local/share/chruby/chruby.fish
 chruby 2.2.2
 
-alias python="python3.4"
-alias py="python3.4"
+alias python="python3"
+alias py="python3"
 alias pip="pip3"
 alias wget="curl -O"
 alias gopi="gox -osarch=\"linux/arm\""
 alias gos3="gox -osarch=\"linux/amd64\""
 alias finder="open ."
 alias ":q"="exit"
+alias "tower"="gittower"
 
 set PATH "/Users/will/src/sdk/platform-tools /usr/local/opt/openssl/bin /usr/local/heroku/bin /usr/local/bin /Library/Frameworks/Python.framework/Versions/3.4/bin" $PATH
 set PATH "/Users/will/Dropbox/golang/bin" $PATH
@@ -17,10 +18,18 @@ set GOPATH "/Users/will/Dropbox/golang"
 function fish_prompt
   if [ $status = 0 ]
     set_color green
-    echo -n "^_^"
+    if git rev-parse 2> /dev/null
+      echo -n (git rev-parse --abbrev-ref HEAD)
+    else
+      echo -n "^_^"
+    end
   else
     set_color red
-    echo -n "x_x"
+    if git rev-parse 2> /dev/null
+      echo -n (git rev-parse --abbrev-ref HEAD)
+    else
+      echo -n "x_x"
+    end
   end
   set_color normal
   echo -n ' ('
