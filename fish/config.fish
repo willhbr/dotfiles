@@ -79,3 +79,12 @@ function mkcd
   mkdir -p $argv[1]
   cd $argv[1]
 end
+
+function pryc
+  pry -r ./config/environment
+end
+
+# this is a terrible name
+function pyc
+  py "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/ptpython/entry_points/run_ptpython.py"
+end
