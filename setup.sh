@@ -23,3 +23,12 @@ ln -fs $current/pry/pryrc ~/.pryrc
 
 mkdir -p ~/.ptpython
 ln -fs $current/ptpython/config.py ~/.ptpython/config.py
+
+# Tmux
+
+ln -fs $current/tmux/tmux.conf ~/.tmux.conf
+
+# Emacs
+
+rm -r ~/.emacs.d
+ln -fs $current/emacs.d ~/.emacs.d
