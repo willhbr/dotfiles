@@ -32,3 +32,7 @@
 
 ; electric pears
 (electric-pair-mode 1)
+
+; Will attempts Lisp
+(global-unset-key (kbd "C-a"))
+(global-set-key (kbd "C-a") 'back-to-indentation)
