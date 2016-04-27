@@ -53,6 +53,9 @@ function db
   end
 end
 
+function fish_greeting
+end
+
 function start
   if [ "$argv[1]" = "mysql" ]
     db mysql start
