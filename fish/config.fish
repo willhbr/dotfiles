@@ -11,6 +11,7 @@ alias finder="open ."
 alias ":q"="exit"
 alias "tower"="gittower"
 alias em="emacs"
+alias rmate="ssh -R 52698:localhost:52698"
 
 set PATH "/Users/will/src/sdk/platform-tools /usr/local/opt/openssl/bin /usr/local/heroku/bin /usr/local/bin /Library/Frameworks/Python.framework/Versions/3.4/bin" $PATH
 set PATH "/Users/will/Dropbox/golang/bin" $PATH
@@ -38,26 +39,6 @@ function fish_prompt
   echo -n ') '
 end
 
-function fish_greeting
-  # set_color $fish_color_comment
-#   echo "                 ___"
-#   echo "   ___======____=---=)"
-#   echo " /T            \\_--===)"
-#   echo " L \\ (0)   \\~    \\_-==)"
-#   echo "  \\      / )J~~    \\-=)"
-#   echo "   \\\\___/  )JJ~~    \\)"
-#   echo "    \\_____/JJJ~~      \\"
-#   echo "    / \\  , \\J~~~~      \\"
-#   echo "   (-\\)\\=|  \\~~~        L__"
-#   echo "   (\\\\)  ( -\\)_            ==__"
-#   echo "    \\V    \\-\\) ===_____  J\\   \\\\"
-#   echo "           \\V)     \\_) \\   JJ J\\)"
-#   echo "                       /J JT\\JJJJ)"
-#   echo "                       (JJJ| \\UUU)"
-#   echo "                        (UU)"
-#   set_color normal
-end
-
 function db
 	if [ "$argv[1]" = "mysql" ]
 	  mysql.server $argv[2]
@@ -68,6 +49,26 @@ function db
       else
         pg_ctl -D /usr/local/var/postgres stop -s -m fast
       end
+    end
+  end
+end
+
+function start
+  if [ "$argv[1]" = "mysql" ]
+    db mysql start
+  else
+    if [ "$argv[1]" = "pg" ]
+      db pg start
+    end
+  end
+end
+
+function stop
+  if [ "$argv[1]" = "mysql" ]
+    db mysql stop
+  else
+    if [ "$argv[1]" = "pg" ]
+      db pg stop
     end
   end
 end
@@ -89,3 +90,7 @@ end
 function pyc
   py "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/site-packages/ptpython/entry_points/run_ptpython.py"
 end
+
+setenv SWIFTENV_ROOT "$HOME/.swiftenv"
+setenv PATH "$SWIFTENV_ROOT/bin" $PATH
+status --is-interactive; and . (swiftenv init -|psub)
