@@ -1,5 +1,5 @@
 source /usr/local/share/chruby/chruby.fish
-chruby 2.2.2
+chruby 2.3.1
 
 alias python="python3"
 alias py="python3"
@@ -11,6 +11,7 @@ alias finder="open ."
 alias ":q"="exit"
 alias "tower"="gittower"
 alias em="emacs"
+alias redis="redis-cli"
 alias rmate="ssh -R 52698:localhost:52698"
 
 set PATH "/Users/will/src/sdk/platform-tools /usr/local/opt/openssl/bin /usr/local/heroku/bin /usr/local/bin /Library/Frameworks/Python.framework/Versions/3.4/bin" $PATH
