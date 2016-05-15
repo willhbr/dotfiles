@@ -22,7 +22,7 @@ fi
 ln -fs $current/vim/vim ~/.vim
 
 # Bash
-ln -fs $current/vim/bash_profile ~/.bash_profile
+ln -fs $current/bash/bash_profile ~/.bash_profile
 
 # Pry
 

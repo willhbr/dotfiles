@@ -13,6 +13,13 @@ alias "tower"="gittower"
 alias em="emacs"
 alias redis="redis-cli"
 alias rmate="ssh -R 52698:localhost:52698"
+# Git aliases
+alias gs="git status"
+alias gd="git diff"
+alias gcm="git commit -m"
+alias gl="git log"
+alias gch="git checkout"
+alias gb="git branch"
 
 set PATH "/Users/will/src/sdk/platform-tools /usr/local/opt/openssl/bin /usr/local/heroku/bin /usr/local/bin /Library/Frameworks/Python.framework/Versions/3.4/bin" $PATH
 set PATH "/Users/will/Dropbox/golang/bin" $PATH
@@ -22,14 +29,14 @@ function fish_prompt
   if [ $status = 0 ]
     set_color green
     if git rev-parse 2> /dev/null
-      echo -n (git rev-parse --abbrev-ref HEAD)
+      echo -n (git rev-parse --abbrev-ref HEAD 2> /dev/null)
     else
       echo -n "^_^"
     end
   else
     set_color red
     if git rev-parse 2> /dev/null
-      echo -n (git rev-parse --abbrev-ref HEAD)
+      echo -n (git rev-parse --abbrev-ref HEAD 2> /dev/null)
     else
       echo -n "x_x"
     end
