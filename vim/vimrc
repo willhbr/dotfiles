@@ -7,7 +7,7 @@ set shiftwidth=2
 set expandtab
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set visualbell
-colorscheme railscasts
+colorscheme wwdc16
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
