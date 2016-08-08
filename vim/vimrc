@@ -7,7 +7,7 @@ set shiftwidth=2
 set expandtab
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set visualbell
-colorscheme wwdc16
+colorscheme deep-space
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
