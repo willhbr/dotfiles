@@ -10,14 +10,8 @@ ln -fs $current/fish/config.fish ~/.config/fish
 
 # Vim
 ln -fs $current/vim/vimrc ~/.vimrc
-ctrlp_dir="$current/vim/vim/bundle/ctrlp.vim" 
-if [[ -e $ctrlp_dir ]]; then
-  cd $ctrlp_dir
-  git pull origin master
-  cd $current
-else
-  git clone https://github.com/kien/ctrlp.vim.git $ctrlp_dir
-fi
+git submodule init
+git submodule update
 
 ln -fs $current/vim/vim ~/.vim
 
@@ -37,8 +31,3 @@ ln -fs $current/ptpython/config.py ~/.ptpython/config.py
 # Tmux
 
 ln -fs $current/tmux/tmux.conf ~/.tmux.conf
-
-# Emacs
-
-rm -r ~/.emacs.d
-ln -fs $current/emacs.d ~/.emacs.d
