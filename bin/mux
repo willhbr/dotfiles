@@ -1,0 +1,28 @@
+#!/bin/bash
+# Usage of this script:
+# mux new_session_name
+# mux existing_session_name
+# mux (will list existing sessions)
+
+name=$1
+
+attach="switch"
+if [ -z "$TMUX" ]; then
+  attach="attach"
+fi
+
+if [ -z "$name" ]; then
+  tmux ls
+  exit
+fi
+
+matching_shells=$(tmux ls | grep $name)
+
+if [ -n "$matching_shells" ]; then
+  tmux $attach -t $name
+else
+  if [ -n "$TMUX" ]; then
+    tmux detach-client
+  fi
+  tmux new -s $name
+fi

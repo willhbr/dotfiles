@@ -31,3 +31,7 @@ ln -fs $current/ptpython/config.py ~/.ptpython/config.py
 # Tmux
 
 ln -fs $current/tmux/tmux.conf ~/.tmux.conf
+
+# Extra commands
+
+ln -fs $current/bin ~/.wills-bin

@@ -20,6 +20,7 @@ alias gb="git branch"
 
 PATH="/Users/will/src/sdk/platform-tools:/usr/local/opt/openssl/bin:/usr/local/heroku/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH="/Users/will/Dropbox/golang/bin:$PATH"
+export PATH="~/.wills-bin:$PATH"
 export GOPATH="/Users/will/Dropbox/golang"
 
 
