@@ -23,7 +23,7 @@ alias gb="git branch"
 
 set PATH "/Users/will/src/sdk/platform-tools /usr/local/opt/openssl/bin /usr/local/heroku/bin /usr/local/bin /Library/Frameworks/Python.framework/Versions/3.4/bin" $PATH
 set PATH "/Users/will/Dropbox/golang/bin" $PATH
-set PATH "~/.wills-bin" $PATH
+set PATH "$HOME/.wills-bin" $PATH
 set GOPATH "/Users/will/Dropbox/golang"
 
 function fish_prompt
