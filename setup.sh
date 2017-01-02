@@ -1,37 +1,43 @@
 #!/bin/bash
 
+set -e
+
 current=$(pwd)
 
+function link() {
+  path="$current/$1"
+  mkdir -p $(dirname $2)
+  echo "$2 -> $path"
+  ln -fs $path $2
+}
+
 # Fish
-if [ "$(which fish)" != "$SHELL" ]; then
-  chsh -s $(which fish)
-fi
-ln -fs $current/fish/config.fish ~/.config/fish
+
+link fish/config.fish ~/.config/config.fish
 
 # Vim
-ln -fs $current/vim/vimrc ~/.vimrc
+link vim/vimrc ~/.vimrc
 git submodule init
 git submodule update
 
-ln -fs $current/vim/vim ~/.vim
+link vim/vim ~/.vim
 
 # Bash
-ln -fs $current/bash/bash_profile ~/.bash_profile
+link bash/bash_profile ~/.bash_profile
 
 # Pry
 
-ln -fs $current/pry/irbrc ~/.irbrc
-ln -fs $current/pry/pryrc ~/.pryrc
+link pry/irbrc ~/.irbrc
+link pry/pryrc ~/.pryrc
 
 # ptpython
 
-mkdir -p ~/.ptpython
-ln -fs $current/ptpython/config.py ~/.ptpython/config.py
+link ptpython/config.py ~/.ptpython/config.py
 
 # Tmux
 
-ln -fs $current/tmux/tmux.conf ~/.tmux.conf
+link tmux/tmux.conf ~/.tmux.conf
 
 # Extra commands
 
-ln -fs $current/bin ~/.wills-bin
+link bin ~/.wills-bin
