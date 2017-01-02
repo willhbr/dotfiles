@@ -13,7 +13,7 @@ function link() {
 
 # Fish
 
-link fish/config.fish ~/.config/config.fish
+link fish/config.fish ~/.config/fish/config.fish
 
 # Vim
 link vim/vimrc ~/.vimrc
