@@ -1,11 +1,7 @@
 # assign a prompt color by hashing the letters of the hostname
 # idea copied from the irssi script 'nickcolor.pl'
 # Daniel Kertesz <daniel@spatof.org>
-
-autoload -U colors
-colors
-
-setopt prompt_subst
+# Translated to be bash compatible
 
 colnames=(
   214 # Orange
@@ -19,13 +15,19 @@ colnames=(
 	cyan
 )
 
+ord() {
+  printf '%d' "'$1"
+}
+
 function _hostname_color() {
 	local chash=0
-	foreach letter ( ${(ws::)HOST[(ws:.:)1]} )
-		(( chash += #letter ))
-	end
-	local crand=$(( $chash % $#colnames ))
-	local crandname=$colnames[$crand]
-  echo "%F{$colnames[$crand]}"
+  local hostname=$(hostname -s)
+  for (( i=0; i<${#hostname}; i++  )); do
+    char=$(ord ${hostname:$i:1})
+    ((chash+=$char))
+  done
+	local crand=$(( $chash % ${#colnames} ))
+  echo ${colnames[$crand]}
 }
+
 hostname_color=$(_hostname_color)

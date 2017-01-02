@@ -9,16 +9,20 @@ else
   alias ls="ls --color=auto"
 fi
 
+export PATH="$HOME/.wills-bin:$PATH"
 export PROJECT_PATH="$HOME/projects"
 export GIT_REMOTES="gh|git@github.com:;ghp|https://github.com/;gl|git@gitlab.com:;eng|git@eng-git.canterbury.ac.nz:"
 
-# Chruby
-#source /usr/local/share/chruby/chruby.sh
-#chruby 2.3.1
-
 # Prompt
-source ~/.zsh/hostname_color.zsh
-PROMPT='%(?.$hostname_color^_^%f.%F{red}x_x%f) (%1/) '
+autoload -U colors
+colors
+setopt prompt_subst
+source ~/.zsh/hostname_color.sh
+PROMPT='%(?.%F{$hostname_color}^_^%f.%F{red}x_x%f) (%1/) '
 
 # Visual suggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# gcd command
+
+source ~/.zsh/gcd.sh
