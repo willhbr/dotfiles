@@ -19,10 +19,10 @@ fi
 matching_shells=$(tmux ls | grep $name)
 
 if [ -n "$matching_shells" ]; then
-  tmux $attach -t $name
+  exec tmux $attach -t $name
 else
   if [ -n "$TMUX" ]; then
     tmux detach-client
   fi
-  tmux new -s $name
+  exec tmux new -s $name
 fi
