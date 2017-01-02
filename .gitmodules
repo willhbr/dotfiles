@@ -1,3 +1,6 @@
+[submodule "ctrlp.vim"]
+  path = vim/vim/bundle/ctrlp.vim
+  url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "zsh-autosuggestions"]
-  path = zsh/zsh/zsh-autosuggestions
-  url = https://github.com/zsh-users/zsh-autosuggestions.git
+	path = zsh/zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
