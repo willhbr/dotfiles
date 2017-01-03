@@ -82,9 +82,9 @@ if [ -z "$user$project" ]; then
   return
 fi
 
-path="$PROJECT_PATH/$remote/$user/$project" 
-if [ -d "$path" ]; then
-  echo_cd $path
+_path="$PROJECT_PATH/$remote/$user/$project" 
+if [ -d "$_path" ]; then
+  echo_cd $_path
   return
 fi
 
@@ -106,7 +106,7 @@ if [ -z "$full_remote" ]; then
   return 1
 fi
 
-if git clone "$full_remote$user/$project.git" "$path"; then
-  echo_cd $path
+if git clone "$full_remote$user/$project.git" "$_path"; then
+  echo_cd $_path
 fi
 }

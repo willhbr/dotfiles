@@ -8,11 +8,11 @@ colnames=(
   043 # Teal
   129 # Pink
   028 # Dark green
-	green
-	yellow
-	blue
-	magenta
-	cyan
+	010 # Green
+  011 # Yellow
+  012 # Blue
+  005 # Magenta
+  014 # Cyan
 )
 
 ord() {
@@ -22,10 +22,11 @@ ord() {
 function _hostname_color() {
 	local chash=0
   local hostname=$(hostname -s)
-  for (( i=0; i<${#hostname}; i++  )); do
+  for (( i=0; i<${#hostname}; i++ )); do
     char=$(ord ${hostname:$i:1})
-    ((chash=chash^$char))
+    ((chash=$chash^$char))
   done
+  local crand=$(($chash % ${#colnames}))
   hostname_color=${colnames[$crand]}
 }
 _hostname_color
