@@ -24,10 +24,8 @@ function _hostname_color() {
   local hostname=$(hostname -s)
   for (( i=0; i<${#hostname}; i++  )); do
     char=$(ord ${hostname:$i:1})
-    ((chash+=$char))
+    ((chash=chash^$char))
   done
-	local crand=$(( $chash % ${#colnames} ))
-  echo ${colnames[$crand]}
+  hostname_color=${colnames[$crand]}
 }
-
-hostname_color=$(_hostname_color)
+_hostname_color

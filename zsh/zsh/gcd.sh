@@ -25,21 +25,23 @@ function split_to_arr() {
   delimiter=$2
   output=$3
 
-  # IFS="$delimiter" read $read_flags $output <<< "$input"
+  IFS="$delimiter" read $read_flags $output <<< "$input"
 }
 
 function split_to_vars() {
   split_to_arr "$1" "$2" list
   # This is easier than a loop
-  index=3
-  for item in ${list[@]}; do
-    eval "${$index}=$item"
-    ((index++))
-  done
-#   if [ ! -z "$3" ]; then eval "$3=${list[0]}"; fi
-#   if [ ! -z "$4" ]; then eval "$4=${list[1]}"; fi
-#   if [ ! -z "$5" ]; then eval "$5=${list[2]}"; fi
-#   if [ ! -z "$6" ]; then eval "$6=${list[3]}"; fi
+  if [ -z "$BASH" ]; then
+    if [ ! -z "$3" ]; then eval "$3=${list[1]}"; fi
+    if [ ! -z "$4" ]; then eval "$4=${list[2]}"; fi
+    if [ ! -z "$5" ]; then eval "$5=${list[3]}"; fi
+    if [ ! -z "$6" ]; then eval "$6=${list[4]}"; fi
+  else
+    if [ ! -z "$3" ]; then eval "$3=${list[0]}"; fi
+    if [ ! -z "$4" ]; then eval "$4=${list[1]}"; fi
+    if [ ! -z "$5" ]; then eval "$5=${list[2]}"; fi
+    if [ ! -z "$6" ]; then eval "$6=${list[3]}"; fi
+  fi
 }
 function echo_cd() {
   echo cd $@
@@ -60,6 +62,7 @@ if [ -z "$1" ]; then
   return 2
 fi
 
+
 split_to_vars "$1" "/" remote user project
 
 if [ -z "$user$project" ]; then
@@ -67,6 +70,12 @@ if [ -z "$user$project" ]; then
   matching=$(find $PROJECT_PATH -maxdepth 3 -mindepth 3 -name "$remote*")
   if [ -z "$matching" ]; then
     echo "No existing projects named '$remote' in $PROJECT_PATH"
+    return 3
+  fi
+  count=$(echo "$matching" | wc -l)
+  if [ "$count" -gt 1 ]; then
+    echo "Too many matches:"
+    echo "$matching"
     return 3
   fi
   echo_cd "$matching"
