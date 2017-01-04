@@ -118,7 +118,7 @@ call s:HL("SpellRare",      s:purple,       s:none,         {'cterm': 'underline
 call s:HL("StatusLine",     s:light_gray,   s:visual_gray)
 call s:HL("StatusLineNC",   s:black,        s:dark_gray)
 call s:HL("TabLine",        s:black,        s:light_gray)
-call s:HL("TabLineSel",     s:light_gray,   s:cursor_blue,  {'cterm': 'bold',          'gui': 'bold'})
+call s:HL("TabLineSel",     s:black,        s:blue,         {'cterm': 'bold',          'gui': 'bold'})
 call s:HL("Title",          s:green,        s:none,         {'cterm': 'bold',          'gui': 'bold'})
 call s:HL("VertSplit",      s:mid_gray,     s:none)
 call s:HL("Visual",         s:mid_gray,     s:dark_gray)
