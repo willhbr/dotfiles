@@ -15,10 +15,9 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 imap jj <Esc>
 nnoremap <C-n> gt
 nnoremap <C-m> gT
+
+set splitbelow
+set splitright
