@@ -1,31 +1,11 @@
 #!/bin/bash
-### Pretty colours!
+
+# Prompt
 source ~/.zsh/hostname_color.sh
 export PS1="\\033[38;5;${hostname_color}m\h \[\033[0;37m\](\W) "
 
-alias python="python3.4"
-alias py="python3.4"
-alias pip="pip3"
-alias wget="curl -O"
-alias gopi="gox -osarch=\"linux/arm\""
-alias gos3="gox -osarch=\"linux/amd64\""
-alias finder="open ."
-alias :q=exit
-# Git aliases
-alias gs="git status"
-alias gd="git diff"
-alias gcm="git commit -m"
-alias gl="git log"
-alias gch="git checkout"
-alias gb="git branch"
-
-PATH="/Users/will/src/sdk/platform-tools:/usr/local/opt/openssl/bin:/usr/local/heroku/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH="/Users/will/Dropbox/golang/bin:$PATH"
-export PATH="$HOME/.wills-bin:$PATH"
-export GOPATH="/Users/will/Dropbox/golang"
-
-export PROJECT_PATH="$HOME/projects"
-export GIT_REMOTES="gh|git@github.com:;ghp|https://github.com/;gl|git@gitlab.com:;eng|git@eng-git.canterbury.ac.nz:"
+source ~/.zsh/alias.sh
+source ~/.zsh/env.sh
 
 function db {
 	if [ "$1" = "mysql" ]
