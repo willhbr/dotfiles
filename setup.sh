@@ -19,15 +19,15 @@ git submodule update
 link fish/config.fish ~/.config/fish/config.fish
 
 # Vim
+link vim ~/.vim
 link vim/vimrc ~/.vimrc
-link vim/vim ~/.vim
 
 # Bash
 link bash/bash_profile ~/.bash_profile
 
 # Zsh
+link zsh ~/.zsh
 link zsh/zshrc ~/.zshrc
-link zsh/zsh ~/.zsh
 
 # Pry
 link pry/irbrc ~/.irbrc

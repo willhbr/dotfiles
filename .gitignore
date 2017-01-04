@@ -1,2 +1,3 @@
-vim/vim/bundles/*
+vim/bundle/*
+zsh/zsh-autosuggestions/*
 *.swp
