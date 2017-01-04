@@ -4,15 +4,15 @@
 # Translated to be bash compatible
 
 colnames=(
-  214 # Orange
-  043 # Teal
-  129 # Pink
-  028 # Dark green
-	010 # Green
+  010 # Green
+  005 # Magenta
   011 # Yellow
   012 # Blue
-  005 # Magenta
   014 # Cyan
+  028 # Dark green
+  043 # Teal
+  129 # Pink
+  214 # Orange
 )
 
 ord() {
@@ -27,6 +27,7 @@ function _hostname_color() {
     ((chash=$chash^$char))
   done
   local crand=$(($chash % ${#colnames}))
+  if [ -z "$BASH" ]; then ((crand++)); fi
   hostname_color=${colnames[$crand]}
 }
 _hostname_color
