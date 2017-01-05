@@ -6,23 +6,19 @@
 
 name=$1
 
-attach="switch"
-if [ -z "$TMUX" ]; then
-  attach="attach"
-fi
-
 if [ -z "$name" ]; then
   tmux ls
   exit
 fi
 
+if [ "$name" = "." ]; then
+  name=${PWD##*/}
+fi
+
 matching_shells=$(tmux ls | grep $name)
 
 if [ -n "$matching_shells" ]; then
-  exec tmux $attach -t $name
+  exec tmux attach -t $name
 else
-  if [ -n "$TMUX" ]; then
-    tmux detach-client
-  fi
   exec tmux new -s $name
 fi
