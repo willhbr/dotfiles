@@ -7,8 +7,10 @@ current=$(pwd)
 function link() {
   path="$current/$1"
   mkdir -p $(dirname $2)
-  echo "$2 -> $path"
-  ln -fs $path $2
+  if [ ! -d $2 ]; then
+    echo "$2 -> $path"
+    ln -fs $path $2
+  fi
 }
 
 # Submodules!
