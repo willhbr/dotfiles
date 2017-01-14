@@ -2,7 +2,17 @@
 
 # Prompt
 source ~/.zsh/hostname_color.sh
-export PS1="\\033[38;5;${hostname_color}m\h \[\033[0;37m\](\W) "
+function __prompt() {
+  local status=$?
+  local color=$hostname_color
+  local face="^_^"
+  if [ $status -ne 0 ]; then
+    color=9
+    face="x_x"
+  fi
+  PS1="\\033[38;5;${color}m$face \[\033[0;37m\](\W) "
+}
+export PROMPT_COMMAND=__prompt
 
 source ~/.zsh/alias.sh
 source ~/.zsh/env.sh
