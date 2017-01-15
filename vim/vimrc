@@ -1,23 +1,50 @@
+" Line numbers and relative numbers
 set relativenumber
+set number
+
+" Allow backspace in more locations
+set backspace=indent,eol,start
+
+" Disable line wrap
 set nowrap
-syntax on
+
+" Change syntax based on file types
 filetype plugin indent on
+syntax on
+colorscheme deep-space
+
+" 2 space indent is life
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" Enable ctrl-p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set visualbell
+
+" I sometimes use GVim
 set guioptions-=RrlL
-colorscheme deep-space
+
+" Disable arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
+
+" nnoremap j gj
+" nnoremap k gk
+" jj as escape in insert more
 imap jj <Esc>
+
+" C-n, C-m to switch tabs
 nnoremap <C-n> gt
 nnoremap <C-m> gT
 
+" Open new splits in the 'other' location
 set splitbelow
 set splitright
+
+" Highlight line for keeping under 80 chars
+set colorcolumn=81
+
+" Some other stuff
+set visualbell
+
