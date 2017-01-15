@@ -21,28 +21,21 @@ else
 fi
 
 function split_to_arr() {
-  input=$1
-  delimiter=$2
-  output=$3
+  local input=$1
+  local delimiter=$2
+  local output=$3
 
   IFS="$delimiter" read $read_flags $output <<< "$input"
 }
 
 function split_to_vars() {
-  split_to_arr "$1" "$2" list
-  # This is easier than a loop
-  if [ -z "$BASH" ]; then
-    if [ ! -z "$3" ]; then eval "$3=${list[1]}"; fi
-    if [ ! -z "$4" ]; then eval "$4=${list[2]}"; fi
-    if [ ! -z "$5" ]; then eval "$5=${list[3]}"; fi
-    if [ ! -z "$6" ]; then eval "$6=${list[4]}"; fi
-  else
-    if [ ! -z "$3" ]; then eval "$3=${list[0]}"; fi
-    if [ ! -z "$4" ]; then eval "$4=${list[1]}"; fi
-    if [ ! -z "$5" ]; then eval "$5=${list[2]}"; fi
-    if [ ! -z "$6" ]; then eval "$6=${list[3]}"; fi
-  fi
+  local input=$1
+  local delimiter=$2
+  shift 2
+
+  IFS="$delimiter" read -r $@ <<< "$input"
 }
+
 function echo_cd() {
   echo cd $@
   cd $@

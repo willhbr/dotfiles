@@ -17,7 +17,16 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source ~/.zsh/gcd.sh
 
+# History
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/._zsh_history
+setopt inc_append_history share_history
 
+# This autoload is required on macOS for completion (For some reason)
+autoload -U compinit && compinit
+
+# Tmux completion (From Julius: github.com/Feh)
 _tmux_pane_words() {
   local expl
   local -a w
