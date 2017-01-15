@@ -29,8 +29,6 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
-" nnoremap j gj
-" nnoremap k gk
 " jj as escape in insert more
 imap jj <Esc>
 
@@ -48,3 +46,8 @@ set colorcolumn=81
 " Some other stuff
 set visualbell
 
+" Show a menu for command completions
+set wildmenu
+
+" Don't redraw as much
+set lazyredraw

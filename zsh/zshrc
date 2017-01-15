@@ -25,22 +25,20 @@ setopt inc_append_history share_history
 
 # This autoload is required on macOS for completion (For some reason)
 autoload -U compinit && compinit
+source ~/.zsh/tmux_complete.zsh
 
-# Tmux completion (From Julius: github.com/Feh)
-_tmux_pane_words() {
-  local expl
-  local -a w
-  if [[ -z "$TMUX_PANE" ]]; then
-    _message "not running inside tmux!"
-    return 1
-  fi
-  w=( ${(u)=$(tmux capture-pane -J -p)} )
-  _wanted values expl 'words from current tmux pane' compadd -a w
+# Vim key bindings
+
+bindkey -v
+export KEYTIMEOUT=50
+
+bindkey -M viins 'jj' vi-cmd-mode
+
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="[% NORMAL]%"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+  zle reset-prompt
 }
-zle -C tmux-pane-words-prefix   complete-word _generic
-zle -C tmux-pane-words-anywhere complete-word _generic
-bindkey '^Xt' tmux-pane-words-prefix
-bindkey '^X^X' tmux-pane-words-anywhere
-zstyle ':completion:tmux-pane-words-(prefix|anywhere):*' completer _tmux_pane_words
-zstyle ':completion:tmux-pane-words-(prefix|anywhere):*' ignore-line current
-zstyle ':completion:tmux-pane-words-anywhere:*' matcher-list 'b:=* m:{A-Za-z}={a-zA-Z}'
+
+zle -N zle-line-init
+zle -N zle-keymap-select
