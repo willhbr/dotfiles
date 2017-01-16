@@ -9,9 +9,9 @@ function link() {
   mkdir -p $(dirname $2)
   if [ -L $2 ]; then
     rm $2
-    echo "$2 -> $path"
-    ln -fs $path $2
   fi
+  echo "$2 -> $path"
+  ln -fs $path $2
 }
 
 # Submodules!
