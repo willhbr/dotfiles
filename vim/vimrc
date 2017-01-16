@@ -51,3 +51,9 @@ set wildmenu
 
 " Don't redraw as much
 set lazyredraw
+
+" Load config for this device
+let __filepath = expand("~/.vimrc-local")
+if filereadable(__filepath)
+  execute 'source '.fnameescape(__filepath)
+endif

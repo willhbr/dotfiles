@@ -18,11 +18,11 @@ source ~/.zsh/alias.sh
 source ~/.zsh/env.sh
 
 function db {
-	if [ "$1" = "mysql" ]
-	then
-	  mysql.server $2
-	else
-	  if [ "$1" = "pg" ]
+  if [ "$1" = "mysql" ]
+  then
+    mysql.server $2
+  else
+    if [ "$1" = "pg" ]
     then
       if [ "$2" = "start" ]
       then
@@ -31,9 +31,15 @@ function db {
         pg_ctl -D /usr/local/var/postgres stop -s -m fast
       fi
     fi
-	fi
+  fi
 }
 
 # "gcd" command
 
 source $HOME/.zsh/gcd.sh
+
+# Load config specific to this device
+__local_file="$HOME/.bash_profile-local" 
+if [ -e $__local_file ]; then
+  source $__local_file
+fi
