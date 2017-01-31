@@ -5,13 +5,14 @@ set -e
 current=$(pwd)
 
 function link() {
-  path="$current/$1"
-  mkdir -p $(dirname $2)
-  if [ -L $2 ]; then
-    rm $2
+  local path="$current/$1"
+  local dest="$2"
+  mkdir -p $(dirname $dest)
+  if [ -L "$dest" ]; then
+    rm "$dest"
   fi
-  echo "$2 -> $path"
-  ln -fs $path $2
+  echo "$dest -> $path"
+  ln -fs "$path" "$dest"
 }
 
 # Submodules!
