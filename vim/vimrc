@@ -23,6 +23,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " I sometimes use GVim
 set guioptions-=RrlL
 
+" Allow for buffers in the background
+set hidden
+
 " Disable arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -33,8 +36,11 @@ nnoremap <right> <nop>
 imap jj <Esc>
 
 " C-n, C-m to switch tabs
-nnoremap <C-n> gt
-nnoremap <C-m> gT
+nnoremap <C-n> :bn<CR>
+nnoremap <C-m> :bp<CR>
+
+" Leader as space key
+let mapleader=" "
 
 " Open new splits in the 'other' location
 set splitbelow
@@ -51,6 +57,10 @@ set wildmenu
 
 " Don't redraw as much
 set lazyredraw
+
+" Show eol
+set list
+set listchars=eol:¬
 
 " Load config for this device
 let __filepath = expand("~/.vimrc-local")
