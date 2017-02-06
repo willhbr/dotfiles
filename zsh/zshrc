@@ -2,6 +2,7 @@
 
 source ~/.zsh/alias.sh
 source ~/.zsh/env.sh
+source ~/.zsh/functions.sh
 
 # Prompt
 autoload -U colors
@@ -12,10 +13,6 @@ PROMPT='%(?.%F{$hostname_color}^_^%f.%F{red}x_x%f) (%1/) '
 
 # Visual suggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# gcd command
-
-source ~/.zsh/gcd.sh
 
 # History
 HISTSIZE=50000

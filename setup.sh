@@ -42,6 +42,3 @@ link ptpython/config.py ~/.ptpython/config.py
 
 # Tmux
 link tmux/tmux.conf ~/.tmux.conf
-
-# Extra commands
-link bin ~/.wills-bin
