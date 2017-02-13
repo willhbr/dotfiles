@@ -1,9 +1,10 @@
 #!/bin/bash
 
-source ~/.zsh/*.sh
+for file in $HOME/.zsh/*.sh; do
+  source $file
+done
 
 # Prompt
-source ~/.zsh/hostname_color.sh
 function __prompt() {
   local status=$?
   local color=$hostname_color
