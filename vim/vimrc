@@ -19,6 +19,7 @@ set shiftwidth=2
 set expandtab
 " Enable ctrl-p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+noremap <leader>f :CtrlP<CR>
 
 " I sometimes use GVim
 set guioptions-=RrlL
