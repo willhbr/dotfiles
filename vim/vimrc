@@ -2,6 +2,9 @@
 set relativenumber
 set number
 
+" Leader as space key
+let mapleader=" "
+
 " Allow backspace in more locations
 set backspace=indent,eol,start
 
@@ -39,9 +42,6 @@ imap jj <Esc>
 " C-n, C-m to switch tabs
 nnoremap <C-n> :bn<CR>
 nnoremap <C-m> :bp<CR>
-
-" Leader as space key
-let mapleader=" "
 
 " Open new splits in the 'other' location
 set splitbelow
