@@ -1,10 +1,11 @@
 " -----------------------------------------------------------
 " lemon-orchard.vim -- A zesty Vim theme
-" Based on deep-space.vim by Brandon Siders
-" <tyrannicaltoucan@gmail.com>
+" Design: Sarang Leehan
 " Maintainer: Will Richardson (github.com/javanut13)
 " License: MIT
 " Modifed: 2017-02-19
+" Based on deep-space.vim by Brandon Siders
+" <tyrannicaltoucan@gmail.com>
 " -----------------------------------------------------------
 
 highlight clear
