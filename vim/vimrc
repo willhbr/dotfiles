@@ -14,7 +14,7 @@ set nowrap
 " Change syntax based on file types
 filetype plugin indent on
 syntax on
-colorscheme deep-space
+colorscheme lemon-orchard
 
 " 2 space indent is life
 set tabstop=2
@@ -68,3 +68,12 @@ let __filepath = expand("~/.vimrc-local")
 if filereadable(__filepath)
   execute 'source '.fnameescape(__filepath)
 endif
+
+" For making vim themes
+nmap <leader>w :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
