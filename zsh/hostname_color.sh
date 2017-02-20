@@ -4,28 +4,29 @@
 # Translated to be bash compatible
 
 colnames=(
-  010 # Green
-  005 # Magenta
-  011 # Yellow
-  012 # Blue
-  014 # Cyan
-  028 # Dark green
-  043 # Teal
-  129 # Pink
-  214 # Orange
+  75  # light_blue
+  71  # green
+  229 # yellow
+  143 # blue
+  30  # turquoise
+  73  # cyan
+  175 # pink
+  143 # khaki
+  75  # cursor_blue
 )
 
-ord() {
-  printf '%d' "'$1"
-}
+_hostname_color() {
+  ord() {
+    printf '%d' "'$1"
+  }
 
-function _hostname_color() {
-	local chash=0
+  local chash=0
   local hostname=$(hostname -s)
   for (( i=0; i<${#hostname}; i++ )); do
     char=$(ord ${hostname:$i:1})
     ((chash=$chash^$char))
   done
+  ((chash=$chash^${#hostname}))
   local crand=$(($chash % ${#colnames}))
   if [ -z "$BASH" ]; then ((crand++)); fi
   hostname_color=${colnames[$crand]}
