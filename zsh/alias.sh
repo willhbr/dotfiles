@@ -11,6 +11,7 @@ alias redis="redis-cli"
 # Git
 alias gs="git status"
 alias gd="git diff --cached"
+alias gdn="git diff"
 alias gcm="git commit -m"
 alias gc="git commit"
 alias gl="git log"

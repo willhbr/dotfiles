@@ -40,6 +40,8 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
+source ~/.zsh/show_mux
+
 # Load config specific to this device
 __local_file="$HOME/.zshrc-local" 
 if [ -e $__local_file ]; then
