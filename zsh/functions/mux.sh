@@ -16,7 +16,7 @@ mux() {
   fi
 
   if [ "$name" = "-" ]; then
-    [ ! -z "$2" ] && echo "Session name required" && return 1
+    [ -z "$2" ] && echo "Session name required" && return 1
     gcd "$2"
     name="."
   fi
@@ -30,4 +30,8 @@ mux() {
   else
     tmux new -s "$name"
   fi
+}
+
+gmux() {
+  mux - "$1"
 }

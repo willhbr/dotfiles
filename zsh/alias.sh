@@ -18,6 +18,7 @@ alias gl="git log"
 alias gch="git checkout"
 alias gb="git branch"
 alias gaa="git add --all"
+alias gap="git add --patch"
 
 # Platform specific
 if [ $(uname) = "Darwin" ]; then
