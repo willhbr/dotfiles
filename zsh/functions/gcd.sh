@@ -55,6 +55,10 @@ if [ -z "$1" ]; then
   return 2
 fi
 
+if [ "$1" = "-" ]; then
+  tree -L 3 "$PROJECT_PATH"
+  return 0
+fi
 
 split_to_vars "$1" "/" remote user project
 
