@@ -37,6 +37,8 @@ set runtimepath^=~/.vim/bundle/vim-fireplace
 nnoremap <leader>e :Eval<CR>
 nnoremap <leader>E :%Eval<CR>
 
+" vim-sexp for S-expressions in Clojure
+set runtimepath^=~/.vim/bundle/vim-sexp
 
 noremap <leader>p :set paste!<CR>
 
