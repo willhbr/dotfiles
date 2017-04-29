@@ -24,8 +24,8 @@ Without prefix:
 
 ## Shell commands
 
-`gcd`: Go to or clone a git project in a regular structure
-`mux`: Start or connect to a tmux session
-`gmux`: Go to/ clone a project and then start a tmux session with that name
++ `gcd`: Go to or clone a git project in a regular structure
++ `mux`: Start or connect to a tmux session
++ `gmux`: Go to/ clone a project and then start a tmux session with that name
 
 `mux` will look for a `.muxfile` in the root of the project to configure the tmux session

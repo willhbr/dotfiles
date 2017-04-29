@@ -10,8 +10,8 @@ colnames=(
   143 # blue
   30  # turquoise
   73  # cyan
-  175 # pink
   143 # khaki
+  175 # pink
   75  # cursor_blue
 )
 
