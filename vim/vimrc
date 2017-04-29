@@ -20,15 +20,23 @@ colorscheme lemon-orchard
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
 " Enable ctrl-p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
 " Shortcuts for common operations
 noremap <leader>f :CtrlP<CR>
 " For getting to angular quickly
 noremap <leader>a :CtrlP client<CR>
+
+" nREPL support
+" Requires CIDER-nREPL to be installed in lein
+" Add this to the user profile: [cider/cider-nrepl "0.14.0"]
+set runtimepath^=~/.vim/bundle/vim-fireplace
+nnoremap <leader>e :Eval<CR>
+nnoremap <leader>E :%Eval<CR>
+
 
 noremap <leader>p :set paste!<CR>
 
