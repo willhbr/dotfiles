@@ -43,6 +43,8 @@ mux() {
     name=${PWD##*/}
   fi
 
+  name="${name//./}"
+
   if tmux has -t "$name" 2> /dev/null; then
     tmux attach -t "$name"
   else

@@ -15,6 +15,9 @@ PROMPT='%(?.%F{$hostname_color}^_^%f.%F{red}x_x%f) (%1/) '
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # History
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HISTIGNORESPACE
 HISTSIZE=50000
 SAVEHIST=50000
 HISTFILE=~/._zsh_history
