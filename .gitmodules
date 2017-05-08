@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-sexp"]
 	path = vim/bundle/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

@@ -45,8 +45,14 @@ zle -N zle-keymap-select
 
 source ~/.zsh/show_mux
 
+export HIGHLIGHTING_ENABLED=true
 # Load config specific to this device
 __local_file="$HOME/.zshrc-local" 
 if [ -e $__local_file ]; then
   source $__local_file
+fi
+
+if [ "$HIGHLIGHTING_ENABLED" = "true" ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/.zsh/highlighting-colors.zsh
 fi
