@@ -22,14 +22,26 @@ load_muxfile() {
   tmux attach -t "$name"
 }
 
+show_sessions() {
+  local format='#S #{pane_current_path} #{session_created_string}'
+  local resp="$(tmux list-sessions -F "$format" 2> /dev/null)"
+  if [ -z "$resp" ]; then
+    echo "No sessions"
+    return
+  fi
+  echo "Sessions:"
+  while read -r line; do
+    read -r name folder time <<< $line
+    echo -e "  \033[0m$name: \033[38;5;240m$folder ($time)"
+  done <<< "$resp"
+  echo -ne "\033[0m"
+}
+
 mux() {
   local name="$1"
 
   if [ -z "$name" ]; then
-    tmux ls 2> /dev/null
-    if [ $? -ne 0 ]; then
-      echo "No sessions"
-    fi
+    show_sessions
     return
   fi
 

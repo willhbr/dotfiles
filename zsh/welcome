@@ -1,0 +1,21 @@
+#!/bin/bash
+
+print_welcome() {
+  _hostname_color
+  echo -ne "\033[38;5;${hostname_color}m"
+  local message="$(whoami) / $(hostname)"
+  if which figlet > /dev/null; then
+    figlet "$message"
+  else
+    echo "$message"
+  fi
+  echo -ne "\033[0m"
+  mux
+}
+
+if [ -z "$TMUX" ]; then
+  case "$-" in
+  *i*) print_welcome ;;
+  *) ;;
+  esac
+fi
