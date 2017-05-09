@@ -17,7 +17,7 @@ function __prompt() {
 }
 export PROMPT_COMMAND=__prompt
 
-source ~/.zsh/show_mux
+source ~/.zsh/welcome
 
 # Load config specific to this device
 __local_file="$HOME/.bash_profile-local" 
