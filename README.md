@@ -1,19 +1,31 @@
-# Will's Dotfiles
+       _                              _   _ _____      __
+      (_) __ ___   ____ _ _ __  _   _| |_/ |___ /     / /
+      | |/ _` \ \ / / _` | '_ \| | | | __| | |_ \    / /
+      | | (_| |\ V / (_| | | | | |_| | |_| |___) |  / /
+     _/ |\__,_| \_/ \__,_|_| |_|\__,_|\__|_|____/  /_/
+    |__/
+         _       _    __ _ _
+      __| | ___ | |_ / _(_) | ___  ___
+     / _` |/ _ \| __| |_| | |/ _ \/ __|
+    | (_| | (_) | |_|  _| | |  __/\__ \
+     \__,_|\___/ \__|_| |_|_|\___||___/
 
-Config for `vim`, `tmux`, `zsh`, `bash`, `fish`, `irb`, `pry`, and `ptpython`.
+# Install
 
-Aim of this is to go from 0 to fully configured setup in one script.
+    sudo apt-get install git vim tmux zsh
+    ./setup.sh
 
-## Tmux (custom) shortcuts
+## Tmux shortcuts
 
 With Prefix (which is C-z):
 
-v, h split vertical, horizontal
++ v, h split vertical, horizontal
 
 Without prefix:
 
-`M-l`, `M-h` next/ previous window
+`M-n`, `M-m` next/ previous window
 `C-hjkl` navigate panes (and vim splits seamlessly)
+`M-hjkl` resize panes
 
 ## Vim custom shortcuts
 
