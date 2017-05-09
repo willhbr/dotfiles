@@ -20,8 +20,13 @@ _hostname_color() {
     printf '%d' "'$1"
   }
 
+  if [ -f ~/.prompt-color ]; then
+    hostname_color=$(cat ~/.prompt-color)
+    return
+  fi
   local chash=0
-  local hostname=$(hostname -s)
+  local hostname="$1"
+  hostname=$(hostname -s)
   for (( i=0; i<${#hostname}; i++ )); do
     char=$(ord ${hostname:$i:1})
     ((chash=$chash^$char))
