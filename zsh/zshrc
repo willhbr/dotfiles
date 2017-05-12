@@ -1,14 +1,11 @@
 #!/bin/zsh
 
-source ~/.zsh/alias.sh
-source ~/.zsh/env.sh
-source ~/.zsh/functions.sh
+source ~/.shell/autoload.sh
 
 # Prompt
 autoload -U colors
 colors
 setopt prompt_subst
-source ~/.zsh/hostname_color.sh
 PROMPT='%(?.%F{$hostname_color}^_^%f.%F{red}x_x%f) (%1/) '
 
 # Visual suggestions
@@ -51,7 +48,7 @@ if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.zsh/welcome
+source ~/.shell/welcome.sh
 
 if [ "$HIGHLIGHTING_ENABLED" = "true" ]; then
   if [ -z "$ZSH_HIGHLIGHT_VERSION" ]; then
