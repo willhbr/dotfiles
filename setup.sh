@@ -26,6 +26,9 @@ link fish/config.fish ~/.config/fish/config.fish
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
 
+# Generic shell
+link shell ~/.shell
+
 # Bash
 link bash/bash_profile ~/.bash_profile
 

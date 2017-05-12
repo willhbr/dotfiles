@@ -1,8 +1,6 @@
 #!/bin/bash
 
-for file in $HOME/.zsh/*.sh; do
-  source $file
-done
+source ~/.shell/autoload.sh
 
 # Prompt
 function __prompt() {
@@ -23,4 +21,4 @@ if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.zsh/welcome
+source ~/.shell/welcome.sh

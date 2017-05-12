@@ -1,7 +1,11 @@
 #!/bin/bash
 
 init() {
-  local file="$HOME/.zsh/templates/$1"
+  if [ -z "$1" ]; then
+    echo "No template given"
+    return 2
+  fi
+  local file="$HOME/.shell/templates/$1"
   if [ ! -e "$file" ]; then
     echo "Template doesn't exist: $1"
     return 1
