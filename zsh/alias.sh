@@ -20,6 +20,12 @@ alias gb=" git branch"
 alias gaa=" git add --all"
 alias gap=" git add --patch"
 
+# Global utilities
+
+alias -g "CL"=" | wc -l"
+alias -g "CC"=" | wc -c"
+alias -g "LESS"=" | less"
+
 # Platform specific
 if [ $(uname) = "Darwin" ]; then
   alias ls="ls -G"

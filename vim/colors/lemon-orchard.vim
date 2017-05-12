@@ -48,7 +48,7 @@ function! s:HL(group, fg, bg, ...)
 endfun
 
 " Text
-call s:HL("Normal",         s:light_gray,   s:black)
+call s:HL("Normal",         s:white,   s:black)
 
 " Base sytax styling
 call s:HL("Comment",        s:mid_gray,     s:none,         {"gui": "italic"})

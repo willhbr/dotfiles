@@ -31,7 +31,7 @@ export KEYTIMEOUT=50
 bindkey -M viins 'jj' vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
-  VIM_PROMPT="[% NORMAL]%"
+  VIM_PROMPT="%F{30}[% NORMAL]%"
   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
   zle reset-prompt
 }
