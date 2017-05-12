@@ -22,9 +22,12 @@ alias gap=" git add --patch"
 
 # Global utilities
 
-alias -g "CL"=" | wc -l"
-alias -g "CC"=" | wc -c"
-alias -g "LESS"=" | less"
+if [ ! -z "$ZSH_NAME" ]; then
+  alias -g "CL"=" | wc -l"
+  alias -g "CC"=" | wc -c"
+  alias -g "LESS"=" | less"
+  alias -g "::"=" && send_tmux_message "
+fi
 
 # Platform specific
 if [ $(uname) = "Darwin" ]; then
