@@ -35,5 +35,9 @@ _hostname_color() {
   local crand=$(($chash % ${#colnames}))
   if [ -z "$BASH" ]; then ((crand++)); fi
   hostname_color=${colnames[$crand]}
+  # [ which tmux 2> /dev/null ] &&
+  tmux set-environment HOST_COLOR "$hostname_color"
 }
 _hostname_color
+HOST_COLOR="$hostname_color"
+export HOST_COLOR
