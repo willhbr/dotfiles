@@ -11,7 +11,7 @@ function __prompt() {
     color=9
     face="x_x"
   fi
-  PS1="\\033[38;5;${color}m$face \[\033[0;37m\](\W) "
+  PS1="\\033[38;5;243m\W \\033[38;5;${color}m=> \[\033[0;37m\]"
 }
 export PROMPT_COMMAND=__prompt
 
