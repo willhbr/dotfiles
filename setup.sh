@@ -16,8 +16,11 @@ function link() {
 }
 
 # Submodules!
-git submodule init
-git submodule update
+pug use zsh https://github.com/zsh-users/zsh-autosuggestions.git
+pug use zsh https://github.com/zsh-users/zsh-syntax-highlighting.git
+pug use vim https://github.com/ctrlpvim/ctrlp.vim.git
+pug use vim https://github.com/tpope/vim-fireplace.git
+pug use vim https://github.com/guns/vim-sexp.git
 
 # Fish
 link fish/config.fish ~/.config/fish/config.fish
