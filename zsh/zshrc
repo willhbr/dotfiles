@@ -10,9 +10,6 @@ setopt prompt_subst
 PROMPT='%(?.%F{$HOST_COLOR}.%F{red})=> %f'
 RPROMPT='$VIM_PROMPT %F{243}%1/%f'
 
-# Visual suggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # History
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_DUPS
@@ -52,9 +49,11 @@ fi
 
 source ~/.shell/welcome.sh
 
+# Pug installed
+source "$HOME/.pug/source/zsh/pug"
+
 if [ "$HIGHLIGHTING_ENABLED" = "true" ]; then
   if [ -z "$ZSH_HIGHLIGHT_VERSION" ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   fi
-  source ~/.zsh/highlighting-colors.zsh
 fi

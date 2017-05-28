@@ -95,3 +95,8 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+" Pug installed
+let __filepath = expand("~/.pug/source/vim/pug")
+if filereadable(__filepath)
+  execute 'source '.fnameescape(__filepath)
+endif
