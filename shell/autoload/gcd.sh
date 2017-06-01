@@ -5,8 +5,6 @@
 # host_shortname/username/project
 # project (Will only change to an existing project)
 
-# There should be a function "split_to_arr" that splits things
-
 # Exit statuses:
 # 1: config error
 # 2: argument error
