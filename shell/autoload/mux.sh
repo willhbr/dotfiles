@@ -47,8 +47,11 @@ mux() {
 
   if [ "$name" = "-" ]; then
     [ -z "$2" ] && echo "Session name required" && return 1
-    gcd "$2"
-    name="."
+    if gcd "$2"; then
+      name="."
+    else
+      return 1
+    fi
   fi
 
   if [ "$name" = "." ]; then
