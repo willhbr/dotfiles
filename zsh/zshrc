@@ -7,7 +7,7 @@ autoload -U colors
 colors
 setopt prompt_subst
 # PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1/) '
-PROMPT='%(?.%F{$HOST_COLOR}.%F{red})=> %f'
+PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||> %f'
 RPROMPT='$VIM_PROMPT %F{243}%1/%f'
 
 # History
