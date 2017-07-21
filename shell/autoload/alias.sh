@@ -7,6 +7,7 @@ alias wget="curl -O"
 alias ":q"="exit"
 
 alias redis="redis-cli"
+alias f='vim'
 
 # Git
 alias gs=" git status"

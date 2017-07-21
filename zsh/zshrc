@@ -7,11 +7,8 @@ autoload -U colors
 colors
 setopt prompt_subst
 # PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1/) '
-PROMPT='%(?.%F{$HOST_COLOR}.%F{red})=> %f'
+PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||> %f'
 RPROMPT='$VIM_PROMPT %F{243}%1/%f'
-
-# Visual suggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # History
 setopt EXTENDED_HISTORY
@@ -52,9 +49,11 @@ fi
 
 source ~/.shell/welcome.sh
 
+# Pug installed
+source "$HOME/.pug/source/zsh/pug"
+
 if [ "$HIGHLIGHTING_ENABLED" = "true" ]; then
   if [ -z "$ZSH_HIGHLIGHT_VERSION" ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   fi
-  source ~/.zsh/highlighting-colors.zsh
 fi

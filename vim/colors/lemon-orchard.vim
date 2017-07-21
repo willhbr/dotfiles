@@ -120,7 +120,7 @@ call s:HL("SpellLocal",     s:cyan,         s:none,         {'cterm': 'underline
 call s:HL("SpellRare",      s:turquoise,    s:none,         {'cterm': 'underline',     'gui': 'boldundercurl'})
 call s:HL("StatusLine",     s:light_gray,   s:visual_gray)
 call s:HL("StatusLineNC",   s:black,        s:dark_gray)
-call s:HL("BuftabOther",    s:black,        s:light_gray)
+call s:HL("BuftabOther",    s:white,        s:dark_gray)
 call s:HL("BuftabVisible",  s:black,        s:khaki)
 call s:HL("BuftabSelected", s:black,        s:yellow)
 call s:HL("TabLine",        s:black,        s:light_gray)
