@@ -27,7 +27,7 @@ if [ ! -z "$ZSH_NAME" ]; then
   alias -g "CL"=" | wc -l"
   alias -g "CC"=" | wc -c"
   alias -g "LESS"=" | less"
-  alias -g "::"=" && send_tmux_message "
+  alias -g "::"=" ; send_tmux_message "
 fi
 
 # Platform specific
