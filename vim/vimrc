@@ -57,8 +57,9 @@ nnoremap <right> <nop>
 imap jj <Esc>
 
 " C-n, C-p to switch tabs
-nnoremap <C-n> :bn<CR>
-nnoremap <C-p> :bp<CR>
+nnoremap <silent> <C-n> :bn<CR>
+nnoremap <silent> <C-p> :bp<CR>
+nnoremap <silent> <C-x> :bd<CR>:bn<CR>
 
 " Open new splits in the 'other' location
 set splitbelow
