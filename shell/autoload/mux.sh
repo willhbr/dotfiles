@@ -79,5 +79,12 @@ smux() {
   local hostname="$1"
   local session="$2"
   shift 2
-  ssh "$hostname" "$@" -t "bash -lc 'if tmux has-session -t '$session' > /dev/null; then tmux a -t '$session'; else tmux new -s '$session'; fi'"
+  ssh "$hostname" "$@" -t "bash -lc 'mux \'$session\''"
+}
+
+sgmux() {
+  local hostname="$1"
+  local session="$2"
+  shift 2
+  ssh "$hostname" "$@" -t "bash -lc 'gmux \'$session\''"
 }
