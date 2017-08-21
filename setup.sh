@@ -15,12 +15,8 @@ function link() {
   ln -fs "$path" "$dest"
 }
 
-# Submodules!
-pug use zsh https://github.com/zsh-users/zsh-autosuggestions.git
-pug use zsh https://github.com/zsh-users/zsh-syntax-highlighting.git
-pug use vim https://github.com/ctrlpvim/ctrlp.vim.git
-pug use vim https://github.com/tpope/vim-fireplace.git
-pug use vim https://github.com/guns/vim-sexp.git
+# Pug
+pug load deps.pug
 
 # Fish
 link fish/config.fish ~/.config/fish/config.fish
