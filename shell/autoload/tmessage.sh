@@ -4,7 +4,7 @@
 # Useage:
 # some_command :: "Message"
 send_tmux_message() {
-  local message="$@"
+  local message="$*"
   if [ -z "$TMUX" ]; then
     echo "I'm not in tmux. But I meant to say: $message"
     return 1

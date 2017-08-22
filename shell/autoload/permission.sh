@@ -3,13 +3,12 @@
 permission() {
   to_num() {
     local input="$1"
-    local value=4
     local total=0
     for (( i=0; i<${#input}; i++ )); do
       local char=${input:$i:1}
-      [ $char = 'r' ] && (( total+=4 ))
-      [ $char = 'w' ] && (( total+=2 ))
-      [ $char = 'x' ] && (( total+=1 ))
+      [ "$char" = 'r' ] && (( total+=4 ))
+      [ "$char" = 'w' ] && (( total+=2 ))
+      [ "$char" = 'x' ] && (( total+=1 ))
     done
     echo -n $total
   }
@@ -17,9 +16,9 @@ permission() {
     local input="$1"
     for (( k=0; k<${#input}; k++ )); do
       local num=${input:$k:1}
-      (( $num & 4 )) && echo -n "r" || printf '-'
-      (( $num & 2 )) && echo -n "w" || printf '-'
-      (( $num & 1 )) && echo -n "x" || printf '-'
+      if (( num & 4 )); then echo -n "r"; else printf '-'; fi
+      if (( num & 2 )); then echo -n "w"; else printf '-'; fi
+      if (( num & 1 )); then echo -n "x"; else printf '-'; fi
     done
   }
   local val="$1"
@@ -45,10 +44,10 @@ Usage:
 EOF
     return 1
   else
-    if [ $(uname) = "Darwin" ]; then
+    if [ "$(uname)" = "Darwin" ]; then
       echo "hahahahahahaha nope"
       return 1
     fi
-    stat -c "%A %a %n" $@
+    stat -c "%A %a %n" "$@"
   fi
 }

@@ -24,7 +24,8 @@ load_muxfile() {
 
 show_sessions() {
   local format='#S #{pane_current_path} #{session_created_string}'
-  local resp="$(tmux list-sessions -F "$format" 2> /dev/null)"
+  local resp
+  resp="$(tmux list-sessions -F "$format" 2> /dev/null)"
   if [ -z "$resp" ]; then
     echo "No sessions"
     return

@@ -4,10 +4,10 @@ set -e
 
 current=$(pwd)
 
-function link() {
+link() {
   local path="$current/$1"
   local dest="$2"
-  mkdir -p $(dirname $dest)
+  mkdir -p "$(dirname "$dest")"
   if [ -L "$dest" ]; then
     rm "$dest"
   fi

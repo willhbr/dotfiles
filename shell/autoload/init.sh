@@ -15,7 +15,7 @@ init() {
   cp -R "$file/" .
   shift 1
   if [ -f "init.sh" ]; then
-    if bash init.sh $@; then
+    if bash init.sh "$@"; then
       rm init.sh
     else
       echo "Init script failed!"

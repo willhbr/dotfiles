@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # utility
 mcd() {
   mkdir -p "$1"
@@ -7,7 +9,8 @@ mcd() {
 rn() {
   local src_path="$1"
   local name="$2"
-  local dest_path=$(dirname "$src_path")
+  local dest_path
+  dest_path="$(dirname "$src_path")"
   if [ -z "$src_path" ] || [ -z "$dest_path" ] || [ -z "$name" ]; then
     echo "Usage: rn <file path> <new name>"
     echo "Rename a file keeping it in the same folder"
@@ -20,7 +23,8 @@ rn() {
 dup() {
   local src_path="$1"
   local name="$2"
-  local dest_path=$(dirname "$src_path")
+  local dest_path
+  dest_path=$(dirname "$src_path")
   if [ -z "$src_path" ] || [ -z "$dest_path" ] || [ -z "$name" ]; then
     echo "Usage: dup <file path> <new name>"
     echo "Duplicate a file with a new name"

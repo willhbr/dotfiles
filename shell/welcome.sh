@@ -3,7 +3,8 @@
 print_welcome() {
   _hostname_color
   echo -ne "\033[38;5;${HOST_COLOR}m"
-  local message="$(whoami) / $(hostname)"
+  local message
+  message="$(whoami) / $(hostname)"
   if command -v figlet > /dev/null; then
     figlet "$message"
   else
