@@ -21,6 +21,7 @@ alias gch=" git checkout"
 alias gb=" git branch"
 alias gaa=" git add --all"
 alias gap=" git add --patch"
+alias gp=" git push"
 
 # Global utilities
 
