@@ -49,9 +49,3 @@ source ~/.shell/welcome.sh
 
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"
-
-if [ "$HIGHLIGHTING_ENABLED" = "true" ]; then
-  if [ -z "$ZSH_HIGHLIGHT_VERSION" ]; then
-    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  fi
-fi

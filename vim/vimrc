@@ -1,3 +1,7 @@
+" Pug installed
+filetype off
+let __filepath = expand("~/.pug/source/vim/pug")
+execute 'source '.fnameescape(__filepath)
 " Line numbers and relative numbers
 set relativenumber
 set number
@@ -12,8 +16,8 @@ set backspace=indent,eol,start
 set nowrap
 
 " Change syntax based on file types
-filetype plugin indent on
 syntax on
+filetype plugin indent on 
 colorscheme lemon-orchard
 
 " 2 space indent is life
@@ -22,22 +26,15 @@ set shiftwidth=2
 set expandtab
 
 " Enable ctrl-p
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 " Shortcuts for common operations
-" noremap <leader>f :CtrlP<CR>
 let g:ctrlp_map = '<leader>f'
 
 " nREPL support
 " Requires CIDER-nREPL to be installed in lein
 " Add this to the user profile: [cider/cider-nrepl "0.14.0"]
-set runtimepath^=~/.vim/bundle/vim-fireplace
 nnoremap <leader>e :Eval<CR>
 nnoremap <leader>E :%Eval<CR>
-
-" vim-sexp for S-expressions in Clojure
-set runtimepath^=~/.vim/bundle/vim-sexp
 
 noremap <leader>p :set paste!<CR>
 
@@ -87,16 +84,3 @@ if filereadable(__filepath)
   execute 'source '.fnameescape(__filepath)
 endif
 
-" For making vim themes
-nmap <leader>w :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-" Pug installed
-let __filepath = expand("~/.pug/source/vim/pug")
-if filereadable(__filepath)
-  execute 'source '.fnameescape(__filepath)
-endif
