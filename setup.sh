@@ -18,9 +18,6 @@ link() {
 # Pug
 pug load deps.pug
 
-# Fish
-link fish/config.fish ~/.config/fish/config.fish
-
 # Vim
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
@@ -38,9 +35,6 @@ link zsh/zshrc ~/.zshrc
 # Pry
 link pry/irbrc ~/.irbrc
 link pry/pryrc ~/.pryrc
-
-# ptpython
-link ptpython/config.py ~/.ptpython/config.py
 
 # Tmux
 link tmux/tmux.conf ~/.tmux.conf
