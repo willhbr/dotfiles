@@ -6,9 +6,7 @@ source ~/.shell/autoload.sh
 autoload -U colors
 colors
 setopt prompt_subst
-# PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1/) '
-PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||> %f'
-RPROMPT='$VIM_PROMPT %F{243}%1/%f'
+PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1/) '
 
 # History
 setopt EXTENDED_HISTORY
@@ -28,7 +26,7 @@ bindkey -M viins 'jj' vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{30}[% NORMAL]% "
-  VIM_PROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
   zle reset-prompt
 }
 
