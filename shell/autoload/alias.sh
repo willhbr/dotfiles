@@ -1,10 +1,11 @@
+#!/bin/bash
 # Python
 alias python="python3"
 alias py="python3"
 # alias pip="pip3"
 
 alias wget="curl -O"
-alias ":q"="exit"
+alias :q="exit"
 
 alias redis="redis-cli"
 alias f='vim'
@@ -20,19 +21,19 @@ alias gch=" git checkout"
 alias gb=" git branch"
 alias gaa=" git add --all"
 alias gap=" git add --patch"
+alias gp=" git push"
 
 # Global utilities
 
 if [ ! -z "$ZSH_NAME" ]; then
-  alias -g "CL"=" | wc -l"
-  alias -g "CC"=" | wc -c"
-  alias -g "LESS"=" | less"
-  alias -g "::"=" ; send_tmux_message "
-  alias -g "??"=" | grep"
+  alias -g CL=" | wc -l"
+  alias -g CC=" | wc -c"
+  alias -g LESS=" | less"
+  alias -g ::=" ; send_tmux_message "
+  alias -g '??'=" | grep"
 fi
 
-# Platform specific
-if [ $(uname) = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   alias ls="ls -G"
   alias finder="open ."
   alias tower="gittower"
