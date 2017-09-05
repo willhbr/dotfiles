@@ -68,7 +68,7 @@ gcd() {
   [ -z "$3" ] || project="/$3.*"
 
   local matching
-  if matching="$(find $PROJECT_PATH -maxdepth 3 | grep "$remote$user$project")"; then
+  if matching="$(find "$PROJECT_PATH" -maxdepth 3 | grep "$remote$user$project")"; then
     count=$(echo "$matching" | wc -l)
     if [ "$count" -gt 1 ]; then
       echo "Too many matches:"
