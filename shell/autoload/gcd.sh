@@ -60,15 +60,15 @@ gcd() {
     return 0
   fi
 
-  split_to_vars "$1" "/" remote user project
+  local remote
+  local user
+  local project
+  [ -z "$1" ] || remote="$1.*"
+  [ -z "$2" ] || user="/$2.*"
+  [ -z "$3" ] || project="/$3.*"
 
-  if [ -z "$user$project" ]; then
-    # Only project name given
-    matching=$(find $PROJECT_PATH -maxdepth 3 -mindepth 3 -name "$remote*")
-    if [ -z "$matching" ]; then
-      echo "No existing projects named '$remote' in $PROJECT_PATH"
-      return 3
-    fi
+  local matching
+  if matching="$(find $PROJECT_PATH -maxdepth 3 | grep "$remote$user$project")"; then
     count=$(echo "$matching" | wc -l)
     if [ "$count" -gt 1 ]; then
       echo "Too many matches:"
@@ -77,6 +77,9 @@ gcd() {
     fi
     echo_cd "$matching"
     return
+  else
+    echo "No existing projects named '$remote' in $PROJECT_PATH"
+    return 3
   fi
 
   _path="$PROJECT_PATH/$remote/$user/$project" 
@@ -94,6 +97,7 @@ gcd() {
     fi
     if [ "$short" = "$remote" ]; then
       full_remote="$full"
+      break
     fi
   done
 
