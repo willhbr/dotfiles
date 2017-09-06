@@ -77,10 +77,14 @@ gcd() {
     fi
     echo_cd "$matching"
     return
-  else
+  elif [ $# -ne 3 ]; then
     echo "No existing projects named '$remote' in $PROJECT_PATH"
     return 3
   fi
+
+  remote="$1"
+  user="$2"
+  project="$3"
 
   _path="$PROJECT_PATH/$remote/$user/$project" 
   if [ -d "$_path" ]; then
