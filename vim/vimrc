@@ -38,17 +38,8 @@ nnoremap <leader>E :%Eval<CR>
 
 noremap <leader>p :set paste!<CR>
 
-" I sometimes use GVim
-set guioptions-=RrlL
-
 " Allow for buffers in the background
 set hidden
-
-" Disable arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
 
 " jj as escape in insert more
 imap jj <Esc>
@@ -75,19 +66,17 @@ set wildmenu
 " Don't redraw as much
 set lazyredraw
 
-" Show eol
-set list
-set listchars=eol:¬
-
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
+let g:syntastic_enable_signs = 0
 
 " Load config for this device
 let __filepath = expand("~/.vimrc-local")

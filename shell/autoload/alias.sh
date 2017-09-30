@@ -26,6 +26,9 @@ alias gp=" git push"
 # Global utilities
 
 if [ ! -z "$ZSH_NAME" ]; then
+  for mode in +x -x +r -r +w -r 777 755; do
+    eval "$mode() { chmod $mode \"\$@\" }"
+  done
   alias -g CL=" | wc -l"
   alias -g CC=" | wc -c"
   alias -g LESS=" | less"
