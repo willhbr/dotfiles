@@ -190,5 +190,6 @@ call s:HL("rubyStringDelimiter",         s:green,       s:none)
 call s:HL("rubySymbol",                  s:light_blue,  s:none)
 
 " Clojure styling
-call s:HL("clojureParen",                s:light_gray,  s:none)
+call s:HL("clojureDefine",               s:light_blue,  s:none)
+call s:HL("clojureParen",                s:mid_gray,    s:none)
 call s:HL("clojureError",                s:light_gray,  s:pink)
