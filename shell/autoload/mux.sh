@@ -1,10 +1,10 @@
 #!/bin/bash
 # Usage of this script:
-# mux new_session_name
-# mux existing_session_name
-# mux (will list existing sessions)
+# mx new_session_name
+# mx existing_session_name
+# mx (will list existing sessions)
 
-mux() {
+mx() {
   local name="$1"
 
   if [ -z "$name" ]; then
@@ -36,18 +36,18 @@ mux() {
   fi
 }
 
-alias gmux="mux -"
+alias gmx="mx -"
 
-smux() {
+smx() {
   local hostname="$1"
   local session="$2"
   shift 2
-  ssh "$hostname" "$@" -t "bash -lc 'mux \'$session\''"
+  ssh "$hostname" "$@" -t "bash -lc 'mx \'$session\''"
 }
 
-sgmux() {
+sgmx() {
   local hostname="$1"
   local session="$2"
   shift 2
-  ssh "$hostname" "$@" -t "bash -lc 'gmux \'$session\''"
+  ssh "$hostname" "$@" -t "bash -lc 'gmx \'$session\''"
 }

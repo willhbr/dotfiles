@@ -49,7 +49,7 @@ print_welcome() {
   fi
   pretty_uptime --single
   echo -e "\033[0m"
-  mux
+  mx
 }
 
 if [ -z "$TMUX" ]; then
