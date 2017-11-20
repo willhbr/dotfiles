@@ -41,13 +41,13 @@ print_welcome() {
   _hostname_color
   echo -ne "\033[38;5;${HOST_COLOR}m"
   local message
-  message="$(whoami) / $(hostname)"
+  message="$(whoami) / $(hostname -s)"
   if command -v figlet > /dev/null; then
     figlet "$message"
   else
     echo "$message"
   fi
-  pretty_uptime --single
+  if [ -e /proc/uptime ]; then pretty_uptime --single; fi
   echo -e "\033[0m"
   mux
 }
