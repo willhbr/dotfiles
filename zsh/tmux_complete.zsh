@@ -41,7 +41,7 @@ __tmux-sessions() {
   sessions=( ${${(f)"$(command tmux list-sessions)"}/:[ $'\t']##/:} )
   _describe -t sessions 'sessions' sessions "$@"
 }
-compdef __tmux-sessions mux
+compdef __tmux-sessions mx
 
 __gcd-projects() {
   local expl
@@ -50,7 +50,7 @@ __gcd-projects() {
   _describe -t projects 'projects' projects "$@"
 }
 compdef __gcd-projects gcd
-compdef __gcd-projects gmux
+compdef __gcd-projects gmx
 
 __ssh_hosts() {
   local expl

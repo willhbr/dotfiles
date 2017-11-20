@@ -22,7 +22,7 @@ setopt inc_append_history share_history
 bindkey -v
 export KEYTIMEOUT=50
 
-bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
 
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{30}[% NORMAL]% "

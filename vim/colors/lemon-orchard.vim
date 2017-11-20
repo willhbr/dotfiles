@@ -48,7 +48,7 @@ function! s:HL(group, fg, bg, ...)
 endfun
 
 " Text
-call s:HL("Normal",         s:white,   s:black)
+call s:HL("Normal",         s:white,   s:none)
 
 " Base sytax styling
 call s:HL("Comment",        s:mid_gray,     s:none,         {"gui": "italic"})
@@ -102,7 +102,7 @@ call s:HL("ErrorMsg",       s:light_blue,   s:none,         {'cterm': 'bold',   
 call s:HL("Folded",         s:mid_gray,     s:black)
 call s:HL("FoldColumn",     s:light_gray,   s:none)
 call s:HL("IncSearch",      s:black,        s:light_gray)
-call s:HL("LineNr",         s:dark_gray,    s:none)
+call s:HL("LineNr",         s:mid_gray,     s:none)
 call s:HL("MatchParen",     s:black,        s:cyan,         {'cterm': 'bold',          'gui': 'bold'})
 call s:HL("ModeMsg",        s:green,        s:none)
 call s:HL("MoreMsg",        s:green,        s:none)
