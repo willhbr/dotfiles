@@ -41,8 +41,10 @@ noremap <leader>p :set paste!<CR>
 " Allow for buffers in the background
 set hidden
 
-" jj as escape in insert more
-imap jj <Esc>
+" jk as escape in insert mode
+imap jk <Esc>
+vmap jk <Esc>
+imap jj na-aa
 
 " C-n, C-p to switch tabs
 nnoremap <silent> <C-n> :bn<CR>
