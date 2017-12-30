@@ -32,7 +32,7 @@ Without prefix:
 `C-n`, `C-m` next, previous tab
 `C-hjkl` navigate splits
 
-`jj` to exit insert mode
+`jk` to exit insert mode
 
 ## Shell commands
 

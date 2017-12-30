@@ -115,3 +115,5 @@ gcd() {
     echo_cd "$_path"
   fi
 }
+
+alias g=gcd

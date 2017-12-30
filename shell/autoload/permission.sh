@@ -33,6 +33,18 @@ permission() {
   elif [[ "$val" =~ [0-9]{3} ]]; then
     to_char "$val"
     echo
+  elif [[ "$val" =~ [0-9]+ ]]; then
+    local num=""
+    (( a = val & 3 ))
+    num="$a$num"
+    (( val = val >> 2 ))
+    (( a = val & 3 ))
+    num="$a$num"
+    (( val = val >> 2 ))
+    (( a = val & 3 ))
+    num="$a$num"
+    echo "$num"
+    to_char "$num"
   elif [ $# -eq 0 ]; then
     cat <<-EOF
 Usage:

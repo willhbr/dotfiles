@@ -30,7 +30,11 @@ mx() {
   name="${name//./}"
 
   if tmux has -t "$name" 2> /dev/null; then
-    tmux attach -t "$name"
+    if [ -z "$TMUX" ]; then
+      tmux attach -t "$name"
+    else
+      tmux switch-client -t "$name"
+    fi
   else
     tmux new -s "$name"
   fi
