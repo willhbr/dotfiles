@@ -16,6 +16,7 @@ mx() {
 
   if [ "$name" = "-" ]; then
     [ -z "$2" ] && echo "Session name required" && return 1
+    local previous_path="$PWD"
     if gcd "$2"; then
       name="."
     else
@@ -29,25 +30,23 @@ mx() {
 
   name="${name//./}"
 
-  if tmux has -t "$name" 2> /dev/null; then
-    tmux attach -t "$name"
+  if [ -z "$TMUX" ]; then
+    if tmux has -t "$name" 2> /dev/null; then
+      tmux attach -t "$name"
+    else
+      tmux new -s "$name"
+    fi
   else
-    tmux new -s "$name"
+    if tmux has -t "$name" 2> /dev/null; then
+      tmux switch -t "$name"
+    else
+      tmux new -s "$name" -d
+      tmux switch -t "$name"
+    fi
+  fi
+  if [ ! -z "$previous_path" ]; then
+    cd "$previous_path"
   fi
 }
 
 alias gmx="mx -"
-
-smx() {
-  local hostname="$1"
-  local session="$2"
-  shift 2
-  ssh "$hostname" "$@" -t "bash -lc 'mx \'$session\''"
-}
-
-sgmx() {
-  local hostname="$1"
-  local session="$2"
-  shift 2
-  ssh "$hostname" "$@" -t "bash -lc 'gmx \'$session\''"
-}
