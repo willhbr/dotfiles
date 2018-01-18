@@ -35,6 +35,14 @@ if [ ! -z "$ZSH_NAME" ]; then
   alias -g LESS=" | less"
   alias -g ::=" ; send_tmux_message "
   alias -g '??'=" | grep"
+
+  local short='...'
+  local long='../..'
+  for dots in {1..10}; do
+    alias -g $short=$long
+    short="${short}."
+    long="$long/.."
+  done
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
