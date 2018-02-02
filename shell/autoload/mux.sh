@@ -23,8 +23,14 @@ mx() {
     fi
   fi
 
-  if [ "$name" = "." ]; then
-    name=${PWD##*/}
+  if [[ "$name" = .* ]]; then
+    local prev="$PWD"
+    if cd "$name"; then
+      name=${PWD##*/}
+      cd "$prev"
+    else
+      name=${PWD##*/}
+    fi
   fi
 
   name="${name//./}"

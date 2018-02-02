@@ -5,8 +5,8 @@ alias py="python3"
 # alias pip="pip3"
 alias cr="crystal"
 
-alias wget="curl -O"
 alias :q="exit"
+alias :e=vim
 
 alias redis="redis-cli"
 alias f='vim'
