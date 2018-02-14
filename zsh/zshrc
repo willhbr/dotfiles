@@ -6,7 +6,7 @@ source ~/.shell/autoload.sh
 autoload -U colors
 colors
 setopt prompt_subst
-PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1/) '
+PROMPT='%(?.%F{$HOST_COLOR}^_^%f.%F{red}x_x%f) (%1~) '
 
 # History
 setopt EXTENDED_HISTORY
