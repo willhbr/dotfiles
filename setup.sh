@@ -24,6 +24,8 @@ link vim/vimrc ~/.vimrc
 
 # Generic shell
 link shell ~/.shell
+link shell/env ~/.zshenv
+link shell/env ~/.bashenv
 
 # Bash
 link bash/bash_profile ~/.bash_profile
