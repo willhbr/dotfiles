@@ -46,7 +46,7 @@ compdef __tmux-sessions mx
 __gcd-projects() {
   local expl
   local -a projects
-  projects=( $(find "$PROJECT_PATH" -maxdepth 3 -mindepth 3 | grep -o '[^/]*$') )
+  projects=( $(gcd --) )
   _describe -t projects 'projects' projects "$@"
 }
 compdef __gcd-projects gcd

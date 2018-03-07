@@ -60,12 +60,22 @@ gcd() {
     return 0
   fi
 
+  if [ "$1" = -- ]; then
+    find "$PROJECT_PATH" -maxdepth 3 -mindepth 3 | grep -o '[^/]*$'
+    gcd_extension -- 2> /dev/null || echo -n
+    return 0
+  fi
+
   local remote
   local user
   local project
   [ -z "$1" ] || remote="$1.*"
   [ -z "$2" ] || user="/$2.*"
   [ -z "$3" ] || project="/$3.*"
+
+  if gcd_extension "$@"; then
+    return 0
+  fi
 
   local matching
   if matching="$(find "$PROJECT_PATH" -maxdepth 3 | grep "$remote$user$project")"; then

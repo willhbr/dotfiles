@@ -5,11 +5,12 @@ alias py="python3"
 # alias pip="pip3"
 alias cr="crystal"
 
-alias wget="curl -O"
 alias :q="exit"
+alias :e=vim
 
 alias redis="redis-cli"
-alias f='vim'
+alias f="vim"
+alias :e="vim"
 
 # Git
 alias gs=" git status"
@@ -35,6 +36,14 @@ if [ ! -z "$ZSH_NAME" ]; then
   alias -g LESS=" | less"
   alias -g ::=" ; send_tmux_message "
   alias -g '??'=" | grep"
+
+  local short='...'
+  local long='../..'
+  for dots in {1..10}; do
+    alias -g $short=$long
+    short="${short}."
+    long="$long/.."
+  done
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
