@@ -41,7 +41,11 @@ print_welcome() {
   _hostname_color
   echo -ne "\033[38;5;${HOST_COLOR}m"
   local message
-  message="$(whoami) / $(hostname -s)"
+  if [ -f ~/.welcome ]; then
+    message="$(cat ~/.welcome)"
+  else
+    message="$(whoami) / $(hostname -s)"
+  fi
   if command -v figlet > /dev/null; then
     figlet "$message"
   else
