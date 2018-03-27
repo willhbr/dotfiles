@@ -78,14 +78,14 @@ gcd() {
   fi
 
   local matching
-  if matching="$(find "$PROJECT_PATH" -maxdepth 3 | grep "$remote$user$project")"; then
+  if matching="$(find "$PROJECT_PATH" -maxdepth 3 -mindepth 3 -printf '%P\n' | grep "$remote$user$project")"; then
     count=$(echo "$matching" | wc -l)
     if [ "$count" -gt 1 ]; then
       echo "Too many matches:"
       echo "$matching"
       return 3
     fi
-    echo_cd "$matching"
+    echo_cd "$PROJECT_PATH/$matching"
     return
   elif [ $# -ne 3 ]; then
     echo "No existing projects named '$remote' in $PROJECT_PATH"
