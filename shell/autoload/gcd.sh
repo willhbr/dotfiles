@@ -14,6 +14,10 @@
 # ?: something else
 
 gcd() {
+
+  set_title_to_here() {
+    printf "\033k${PWD##*/}\033\\"
+  }
   if [ -z "$BASH" ]; then
     local read_flags="-rA"
   else
@@ -39,6 +43,7 @@ gcd() {
   function echo_cd() {
     echo cd "$@"
     cd "$@"
+    set_title_to_here
   }
 
   if [ -z "$GIT_REMOTES" ]; then

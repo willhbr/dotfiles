@@ -27,9 +27,6 @@ set expandtab
 
 " Split character the same as tmux
 set fillchars+=vert:│
-set fillchars+=stl:─
-set fillchars+=stlnc:─
-set statusline=%y\ %f\ %m\ 
 set laststatus=2
 
 " Enable ctrl-p
@@ -73,6 +70,28 @@ set wildmenu
 
 " Don't redraw as much
 set lazyredraw
+
+" lightline stuff
+
+set noshowmode
+
+let g:lightline = {
+\   'colorscheme': 'jellybeans',
+\   'active': {
+\     'left':[ [ 'mode', 'paste' ],
+\              [ 'readonly', 'filename', 'modified' ]
+\     ]
+\   },
+\ }
+let g:lightline.separator = {
+\   'left': '', 'right': ''
+\}
+let g:lightline.subseparator = {
+\   'left': '', 'right': ''
+\}
+let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " Syntastic settings
 set statusline+=%#warningmsg#

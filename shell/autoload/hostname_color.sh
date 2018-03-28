@@ -37,5 +37,10 @@ _hostname_color() {
   if [ -z "$BASH" ]; then ((crand++)); fi
   HOST_COLOR=${colnames[$crand]}
 }
-_hostname_color "$@"
-export HOST_COLOR
+
+if [ -z "$TMUX" ]; then
+  _hostname_color "$@"
+  export HOST_COLOR
+else
+  export HOST_COLOR="$(shuf -i 17-231 -n 1)"
+fi
