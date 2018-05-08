@@ -38,9 +38,5 @@ _hostname_color() {
   HOST_COLOR=${colnames[$crand]}
 }
 
-if [ -z "$TMUX" ]; then
-  _hostname_color "$@"
-  export HOST_COLOR
-else
-  export HOST_COLOR="$(shuf -i 17-231 -n 1)"
-fi
+_hostname_color "$@"
+export HOST_COLOR

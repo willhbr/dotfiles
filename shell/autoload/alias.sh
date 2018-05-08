@@ -51,4 +51,5 @@ if [ "$(uname)" = "Darwin" ]; then
   alias tower="gittower"
 else
   alias ls="ls --color=auto"
+  alias grep="grep --color=auto"
 fi

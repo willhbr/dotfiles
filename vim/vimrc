@@ -28,6 +28,7 @@ set expandtab
 " Split character the same as tmux
 set fillchars+=vert:│
 set laststatus=2
+set showtabline=2
 
 " Enable ctrl-p
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -47,6 +48,8 @@ set hidden
 
 " jk as escape in insert mode
 inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap JK <Esc>
 
 " C-n, C-p to switch tabs
 nnoremap <silent> <C-n> :bn<CR>

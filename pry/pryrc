@@ -1,4 +1,0 @@
-Pry.prompt = [
-  proc { |obj, nest_level| "(#{obj}) > " },
-  proc { |obj, nest_level| "(#{obj}) * " }
-]

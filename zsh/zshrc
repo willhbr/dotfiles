@@ -23,6 +23,8 @@ bindkey -v
 export KEYTIMEOUT=50
 
 bindkey -M viins 'jk' vi-cmd-mode
+# Allow deleting into non-inserted text
+bindkey "^?" backward-delete-char
 
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{252}%F{0}%K{252} NORMAL %f%k"
