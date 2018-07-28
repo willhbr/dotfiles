@@ -22,6 +22,8 @@ pug load deps.pug
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
 
+link vim ~/.config/nvim
+
 # Generic shell
 link shell ~/.shell
 link shell/env ~/.zshenv

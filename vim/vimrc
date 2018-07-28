@@ -18,7 +18,7 @@ set nowrap
 " Change syntax based on file types
 syntax on
 filetype plugin indent on 
-colorscheme lemon-orchard
+colorscheme onedark
 
 " 2 space indent is life
 set tabstop=2

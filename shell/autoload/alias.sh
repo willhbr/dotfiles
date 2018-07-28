@@ -1,15 +1,21 @@
 #!/bin/bash
+if type nvim > /dev/null; then
+  EDITOR=nvim
+else
+  EDITOR=vim
+fi
+alias vim="$EDITOR"
+alias f="$EDITOR"
+alias :e="$EDITOR"
+
 # Python
 alias python="python3"
 alias py="python3"
 # alias pip="pip3"
 
 alias :q="exit"
-alias :e=vim
 
 alias redis="redis-cli"
-alias f="vim"
-alias :e="vim"
 
 # Git
 alias gs=" git status"
