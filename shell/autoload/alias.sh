@@ -7,6 +7,9 @@ fi
 alias vim="$EDITOR"
 alias f="$EDITOR"
 alias :e="$EDITOR"
+alias paste='tmux show-buffer'
+alias copyf='tmux load-buffer'
+alias copy='tmux set-buffer'
 
 # Python
 alias python="python3"

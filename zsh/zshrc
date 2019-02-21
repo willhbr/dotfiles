@@ -12,10 +12,12 @@ PROMPT='%F{0}%(?.%K{$HOST_COLOR}.%K{red}) %1~ %k%(?.%F{$HOST_COLOR}.%F{red})%
 setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HISTIGNORESPACE
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HISTFILE=~/._zsh_history
 setopt inc_append_history share_history
+
+REPORTTIME=10
 
 # Vim key bindings
 

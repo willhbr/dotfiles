@@ -18,7 +18,7 @@ set nowrap
 " Change syntax based on file types
 syntax on
 filetype plugin indent on 
-colorscheme onedark
+colorscheme lemon-orchard
 
 " 2 space indent is life
 set tabstop=2
@@ -34,6 +34,7 @@ set showtabline=2
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 " Shortcuts for common operations
 let g:ctrlp_map = '<leader>f'
+nnoremap <silent> <leader>t :CtrlPTag<CR>
 
 " nREPL support
 " Requires CIDER-nREPL to be installed in lein
@@ -50,6 +51,7 @@ set hidden
 inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap JK <Esc>
+inoremap jK <Esc>
 
 " C-n, C-p to switch tabs
 nnoremap <silent> <C-n> :bn<CR>

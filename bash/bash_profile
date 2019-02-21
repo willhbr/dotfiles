@@ -22,3 +22,5 @@ if [ -e $__local_file ]; then
 fi
 
 source ~/.shell/welcome.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
