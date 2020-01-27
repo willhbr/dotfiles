@@ -16,13 +16,11 @@ link() {
 }
 
 # Pug
-pug load deps.pug
+./deps.pug
 
 # Vim
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
-
-link vim ~/.config/nvim
 
 # Generic shell
 link shell ~/.shell
@@ -42,3 +40,10 @@ link pry/pryrc ~/.pryrc
 
 # Tmux
 link tmux/tmux.conf ~/.tmux.conf
+
+# Git
+link global-gitignore ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+
+# No login motd
+touch ~/.hushlogin

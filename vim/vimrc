@@ -18,7 +18,7 @@ set nowrap
 " Change syntax based on file types
 syntax on
 filetype plugin indent on 
-colorscheme lemon-orchard
+colorscheme dogrun
 
 " 2 space indent is life
 set tabstop=2
@@ -35,12 +35,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 " Shortcuts for common operations
 let g:ctrlp_map = '<leader>f'
 nnoremap <silent> <leader>t :CtrlPTag<CR>
-
-" nREPL support
-" Requires CIDER-nREPL to be installed in lein
-" Add this to the user profile: [cider/cider-nrepl "0.14.0"]
-nnoremap <leader>e :Eval<CR>
-nnoremap <leader>E :%Eval<CR>
 
 noremap <leader>p :set paste!<CR>
 
@@ -109,6 +103,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 0
+
+" Always autoformat Crystal files
+
+let g:crystal_auto_format = 1
 
 " Load config for this device
 let __filepath = expand("~/.vimrc-local")

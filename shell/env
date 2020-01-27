@@ -1,4 +1,4 @@
 export PROJECT_PATH="$HOME/projects"
 export GIT_REMOTES="glp|https://gitlab.com/;gh|git@github.com:;ghp|https://github.com/;gl|git@gitlab.com:;eng|git@eng-git.canterbury.ac.nz:"
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin"

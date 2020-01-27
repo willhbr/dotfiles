@@ -53,3 +53,9 @@ source ~/.shell/welcome.sh
 
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"
+
+if [ -z "$TMUX" ]; then
+  case $- in
+    *i*) tmux attach ;;
+  esac
+fi

@@ -1,9 +1,5 @@
 #!/bin/bash
-if type nvim > /dev/null; then
-  EDITOR=nvim
-else
-  EDITOR=vim
-fi
+export EDITOR=vim
 alias vim="$EDITOR"
 alias f="$EDITOR"
 alias :e="$EDITOR"
@@ -21,6 +17,7 @@ alias :q="exit"
 alias redis="redis-cli"
 
 # Git
+alias g=git
 alias gs=" git status"
 alias gd=" git diff --cached"
 alias gdn=" git diff"
