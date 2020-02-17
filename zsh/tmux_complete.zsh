@@ -63,6 +63,7 @@ compdef __ssh_hosts ssh
 complete-or-list() {
   [[ $#BUFFER != 0 ]] && { zle complete-word ; return 0 }
   echo
+  pwd
   ls
   zle reset-prompt
 }

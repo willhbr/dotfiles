@@ -50,7 +50,7 @@ inoremap jK <Esc>
 " C-n, C-p to switch tabs
 nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
-nnoremap <silent> <C-x> :bd<CR>:bn<CR>
+nnoremap <silent> <C-x> :bp\|bd #<CR>
 nnoremap Y y$
 
 " Open new splits in the 'other' location
