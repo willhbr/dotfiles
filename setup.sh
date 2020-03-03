@@ -2,7 +2,7 @@
 
 set -e
 
-current=$(pwd)
+current="$PWD"
 
 link() {
   local path="$current/$1"
@@ -14,9 +14,6 @@ link() {
   echo "$dest -> $path"
   ln -fs "$path" "$dest"
 }
-
-# Pug
-./deps.pug
 
 # Vim
 link vim ~/.vim

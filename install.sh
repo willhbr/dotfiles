@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -e
+
+if ! which pug; then
+  curl https://raw.githubusercontent.com/willhbr/pug/master/install.sh | bash
+fi
+
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
