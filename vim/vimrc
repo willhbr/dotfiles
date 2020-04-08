@@ -30,11 +30,12 @@ set fillchars+=vert:│
 set laststatus=2
 set showtabline=2
 
-" Enable ctrl-p
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-" Shortcuts for common operations
-let g:ctrlp_map = '<leader>f'
-nnoremap <silent> <leader>t :CtrlPTag<CR>
+" fzf for files
+nnoremap <silent> <leader>f :FZF<CR>
+
+" Tags
+nnoremap <silent> <leader>m :Tags<CR>
+let g:gutentags_cache_dir = expand('~/.tags')
 
 noremap <leader>p :set paste!<CR>
 
