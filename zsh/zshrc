@@ -59,3 +59,5 @@ if [ -z "$TMUX" ]; then
     *i*) tmux attach ;;
   esac
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

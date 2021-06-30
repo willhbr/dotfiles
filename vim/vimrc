@@ -31,7 +31,7 @@ set laststatus=2
 set showtabline=2
 
 " fzf for files
-nnoremap <silent> <leader>f :FZF<CR>
+nnoremap <silent> <leader>f :GFiles<CR>
 
 " Tags
 nnoremap <silent> <leader>m :Tags<CR>
