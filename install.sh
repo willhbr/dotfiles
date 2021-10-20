@@ -12,8 +12,7 @@ pug get zsh github: zsh-users/zsh-syntax-highlighting
 
 # Vim Plugins
 pug get vim github: wadackel/vim-dogrun
-pug get vim github: junegunn/fzf
-pug get vim github: junegunn/fzf.vim
+pug get vim github: ctrlpvim/ctrlp.vim
 pug get vim github: ervandew/supertab
 pug get vim github: jiangmiao/auto-pairs
 pug get vim github: vim-syntastic/syntastic
@@ -29,7 +28,7 @@ pug get vim github: udalov/kotlin-vim
 pug get vim github: keith/swift.vim
 pug get vim github: elixir-editors/vim-elixir
 pug get vim github: kchmck/vim-coffee-script
-pug get vim github: fatih/vim-go
+# pug get vim github: fatih/vim-go
 
 # Vim/ tmux navigation
 

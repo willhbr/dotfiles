@@ -60,13 +60,8 @@ gcd() {
     return 2
   fi
 
-  if [ "$1" = "-" ]; then
-    tree -L 3 "$PROJECT_PATH"
-    return 0
-  fi
-
   if [ "$1" = -- ]; then
-    find "$PROJECT_PATH" -maxdepth 3 -mindepth 3 | grep -o '[^/]*$'
+    ls "$PROJECT_PATH"
     if type gcd_extension > /dev/null 2>&1; then
       gcd_extension -- 2> /dev/null || echo -n
     fi
@@ -87,7 +82,7 @@ gcd() {
   fi
 
   local matching
-  if matching="$(find "$PROJECT_PATH" -maxdepth 3 -mindepth 3 -printf '%P\n' | grep "$remote$user$project")"; then
+  if matching="$(ls "$PROJECT_PATH" | grep "$remote$user$project")"; then
     count=$(echo "$matching" | wc -l)
     if [ "$count" -gt 1 ]; then
       echo "Too many matches:"
@@ -105,7 +100,7 @@ gcd() {
   user="$2"
   project="$3"
 
-  _path="$PROJECT_PATH/$remote/$user/$project" 
+  _path="$PROJECT_PATH/$project" 
   if [ -d "$_path" ]; then
     echo_cd "$_path"
     return

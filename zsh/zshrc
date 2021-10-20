@@ -25,8 +25,13 @@ bindkey -v
 export KEYTIMEOUT=50
 
 bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins 'Jk' vi-cmd-mode
+bindkey -M viins 'JK' vi-cmd-mode
+bindkey -M viins 'jK' vi-cmd-mode
 # Allow deleting into non-inserted text
 bindkey "^?" backward-delete-char
+# I do "jkk" to run the prev command, and if I miss the j I want it to still work
+alias kk=r
 
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{252}%F{0}%K{252} NORMAL %f%k"
