@@ -33,6 +33,23 @@ bindkey "^?" backward-delete-char
 # I do "jkk" to run the prev command, and if I miss the j I want it to still work
 alias kk=r
 
+precmd() {
+  if [ -z "$TMUX" ]; then return; fi
+  local session="$(tmux display -p '#S')"
+  tmux set-environment -h -t "$session" "START_TIME_$TMUX_PANE" "$(date +%s)"
+}
+
+cmd-times() {
+  local now="$(date +%s)"
+  tmux list-panes -F '#{pane_id}' | while read -r pane_id; do
+    local cmd="$(tmux display -t "$pane_id" -p '#{pane_current_command}')"
+    local start="$(tmux show-environment "START_TIME_$pane_id")"
+    local t="${start#"START_TIME_$pane_id="}"
+    local diff=$(( now - t ))
+    echo "$cmd: $(date -u -d @"$diff" +'%-Mm %-Ss')"
+  done
+}
+
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{252}%F{0}%K{252} NORMAL %f%k"
   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
@@ -65,4 +82,6 @@ if [ -z "$TMUX" ]; then
   esac
 fi
 
+export FZF_TMUX_OPTS="-p"
+export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

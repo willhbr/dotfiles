@@ -11,7 +11,6 @@ pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
 
 # Vim Plugins
-pug get vim github: wadackel/vim-dogrun
 pug get vim github: ctrlpvim/ctrlp.vim
 pug get vim github: ervandew/supertab
 pug get vim github: jiangmiao/auto-pairs
