@@ -1,6 +1,10 @@
 #!/bin/bash
 
-source ~/.shell/autoload.sh
+for file in ~/.shell/*.sh; do
+  if ! [[ "$(basename "$file")" = _* ]]; then
+    source "$file"
+  fi
+done
 
 # Prompt
 function __prompt() {
@@ -21,6 +25,4 @@ if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.shell/welcome.sh
-
-export PATH="$HOME/.cargo/bin:$PATH"
+source ~/.shell/_welcome.sh

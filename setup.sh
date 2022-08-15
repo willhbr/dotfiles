@@ -21,6 +21,7 @@ link vim/vimrc ~/.vimrc
 
 # Generic shell
 link shell ~/.shell
+link bin ~/.local/df-bin
 link shell/env ~/.zshenv
 link shell/env ~/.bashenv
 

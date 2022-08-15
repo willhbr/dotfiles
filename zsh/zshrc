@@ -1,6 +1,15 @@
 #!/bin/zsh
 
-source ~/.shell/autoload.sh
+for file in ~/.shell/*.sh; do
+  if ! [[ "$(basename "$file")" = _* ]]; then
+    source "$file"
+  fi
+done
+autoload -U compinit && compinit
+
+for file in ~/.zsh/*.zsh; do
+  source "$file"
+done
 
 # Prompt
 autoload -U colors
@@ -33,23 +42,6 @@ bindkey "^?" backward-delete-char
 # I do "jkk" to run the prev command, and if I miss the j I want it to still work
 alias kk=r
 
-precmd() {
-  if [ -z "$TMUX" ]; then return; fi
-  local session="$(tmux display -p '#S')"
-  tmux set-environment -h -t "$session" "START_TIME_$TMUX_PANE" "$(date +%s)"
-}
-
-cmd-times() {
-  local now="$(date +%s)"
-  tmux list-panes -F '#{pane_id}' | while read -r pane_id; do
-    local cmd="$(tmux display -t "$pane_id" -p '#{pane_current_command}')"
-    local start="$(tmux show-environment "START_TIME_$pane_id")"
-    local t="${start#"START_TIME_$pane_id="}"
-    local diff=$(( now - t ))
-    echo "$cmd: $(date -u -d @"$diff" +'%-Mm %-Ss')"
-  done
-}
-
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%F{252}%F{0}%K{252} NORMAL %f%k"
   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
@@ -59,10 +51,6 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# This autoload is required on macOS for completion (For some reason)
-autoload -U compinit && compinit
-source ~/.zsh/tmux_complete.zsh
-
 
 export HIGHLIGHTING_ENABLED=true
 # Load config specific to this device
@@ -71,7 +59,7 @@ if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.shell/welcome.sh
+source ~/.shell/_welcome.sh
 
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"

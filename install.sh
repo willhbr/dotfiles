@@ -3,7 +3,8 @@
 set -e
 
 if ! which pug; then
-  curl https://raw.githubusercontent.com/willhbr/pug/master/install.sh | bash
+  curl https://raw.githubusercontent.com/willhbr/pug/master/install.sh > /tmp/pug-install
+  bash /tmp/pug-install
 fi
 
 # ZSH
@@ -26,8 +27,6 @@ pug get vim github: rust-lang/rust.vim
 pug get vim github: udalov/kotlin-vim
 pug get vim github: keith/swift.vim
 pug get vim github: elixir-editors/vim-elixir
-pug get vim github: kchmck/vim-coffee-script
-# pug get vim github: fatih/vim-go
 
 # Vim/ tmux navigation
 

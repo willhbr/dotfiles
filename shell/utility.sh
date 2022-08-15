@@ -22,18 +22,6 @@ send_tmux_message() {
   tmux set-option display-time 750
 }
 
-do_runner() {
-  clear
-  tmux clear-history
-  if fc -e -; then
-    echo "Success."
-    send_tmux_message "Runner succeeded"
-  else
-    echo "Failed: $?"
-    send_tmux_message "Runner failed: $?"
-  fi
-}
-
 mcd() {
   mkdir -p "$1"
   cd "$1"
