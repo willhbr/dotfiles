@@ -1,7 +1,7 @@
 precmd() {
   if [ -z "$TMUX" ]; then return; fi
   local session="$(tmux display -p '#S')"
-  tmux set-environment -h -t "$session" "START_TIME_$TMUX_PANE" "$(date +%s)"
+  tmux set-environment -t "$session" "START_TIME_$TMUX_PANE" "$(date +%s)"
 }
 
 cmd-times() {
