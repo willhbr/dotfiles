@@ -83,11 +83,15 @@ gcd() {
 
   local matching
   if matching="$(ls "$PROJECT_PATH" | grep "$remote$user$project")"; then
-    count=$(echo "$matching" | wc -l)
+    count="$(echo "$matching" | wc -l)"
     if [ "$count" -gt 1 ]; then
-      echo "Too many matches:"
-      echo "$matching"
-      return 3
+      matching="$(ls "$PROJECT_PATH" | grep "^$remote$user$project\$")"
+      count="$(echo "$matching" | wc -l)"
+      if [ "$count" -gt 1 ]; then
+        echo "Too many matches:"
+        echo "$matching"
+        return 3
+      fi
     fi
     echo_cd "$PROJECT_PATH/$matching"
     return
