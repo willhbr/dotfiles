@@ -43,6 +43,7 @@ link tmux/tmux.conf ~/.tmux.conf
 link git ~/.git-template
 git config --global core.excludesfile ~/.git-template/global-gitignore
 git config --global init.templateDir ~/.git-template
+git config pull.rebase true
 
 # No login motd
 touch ~/.hushlogin
