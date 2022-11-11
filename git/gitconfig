@@ -1,0 +1,17 @@
+[user]
+	name = Will Richardson
+	email = william.hamish@gmail.com
+[core]
+	excludesfile = /home/will/.git-template/global-gitignore
+[init]
+	templateDir = /home/will/.git-template
+[pull]
+	rebase = true
+[alias]
+	mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+	sync = "!git pull origin $(git mainbranch) --rebase"
+	update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
+	histedit = "!git rebase -v -i $(git mainbranch)"
+	xl = "!git log origin/$(git mainbranch)~1..HEAD"
+	publish = push origin HEAD --force-with-lease
+	pub = publish

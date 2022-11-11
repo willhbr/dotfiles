@@ -40,10 +40,8 @@ link pry/pryrc ~/.pryrc
 link tmux/tmux.conf ~/.tmux.conf
 
 # Git
-link git ~/.git-template
-git config --global core.excludesfile ~/.git-template/global-gitignore
-git config --global init.templateDir ~/.git-template
-git config pull.rebase true
+link git/template ~/.git-template
+link git/gitconfig ~/.gitconfig
 
 # No login motd
 touch ~/.hushlogin
