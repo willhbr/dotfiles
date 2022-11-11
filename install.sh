@@ -2,11 +2,6 @@
 
 set -e
 
-if ! which pug; then
-  curl https://raw.githubusercontent.com/willhbr/pug/master/install.sh > /tmp/pug-install
-  bash /tmp/pug-install
-fi
-
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting

@@ -1,6 +1,6 @@
 #!/bin/bash
-export EDITOR=vim
-alias vim="$EDITOR"
+alias pug=pug.sh
+
 alias f="$EDITOR"
 alias :e="$EDITOR"
 alias paste='tmux show-buffer'
@@ -13,8 +13,6 @@ alias py="python3"
 # alias pip="pip3"
 
 alias :q="exit"
-
-alias redis="redis-cli"
 
 # Git
 alias g=git

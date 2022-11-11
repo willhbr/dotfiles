@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" = install ]; then
+  echo "source-file '$SOURCE_DIR/tmux/$2/$2.conf'" > "$3"
+else
+  cat <<-EOF
+Make sure this is added to your .tmux.conf file:
+
+source-file '$SOURCE_DIR/tmux/pug'
+EOF
+fi

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ "$1" = install ]; then
+  dir="$SOURCE_DIR/zsh/$2"
+  if [ -e "$dir/$2.plugin.zsh" ]; then
+    echo "source '$dir/$2.plugin.zsh'" > "$3"
+  else
+    echo "source '$dir/$2.zsh'" > "$3"
+  fi
+else
+  cat <<-EOF
+Make sure this is in your .zshrc file:
+
+source '$SOURCE_DIR/zsh/pug'
+EOF
+fi

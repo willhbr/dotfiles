@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$1" = install ]; then
+  echo "set runtimepath^=$SOURCE_DIR/vim/$2" > "$3"
+else
+  cat <<-EOF
+Make sure this is added to your .vimrc file:
+
+filetype off
+let __pug_path = expand("$SOURCE_DIR/vim/pug")
+execute 'source '.fnameescape(__pug_path)
+filetype plugin indent on
+EOF
+fi
