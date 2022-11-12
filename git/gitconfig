@@ -8,7 +8,7 @@
 [pull]
 	rebase = true
 [alias]
-	mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+	mainbranch = "!git branch -r | sed -nr 's/.*origin\\/HEAD -> origin\\/(.*?)/\\1/p'"
 	sync = "!git pull origin $(git mainbranch) --rebase"
 	update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
 	histedit = "!git rebase -v -i $(git mainbranch)"

@@ -1,6 +1,4 @@
 #!/bin/bash
-alias pug=pug.sh
-
 alias f="$EDITOR"
 alias :e="$EDITOR"
 alias paste='tmux show-buffer'
@@ -21,7 +19,7 @@ alias gd=" git diff --cached"
 alias gdn=" git diff"
 alias gcm=" git commit -m"
 alias gc=" git commit"
-alias gl=" git log"
+alias gl=" git xl"
 alias gch=" git checkout"
 alias gb=" git branch"
 alias gaa=" git add --all"
