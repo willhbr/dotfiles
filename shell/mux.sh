@@ -8,20 +8,8 @@ mx() {
   local name="$1"
 
   if [ -z "$name" ]; then
-    local sessions
-    sessions="$(tmux ls)"
-    echo "${sessions//: /:		}"
+    tmux ls -F '#S'
     return
-  fi
-
-  if [ "$name" = "-" ]; then
-    [ -z "$2" ] && echo "Session name required" && return 1
-    local previous_path="$PWD"
-    if gcd "$2"; then
-      name="."
-    else
-      return 1
-    fi
   fi
 
   if [[ "$name" = .* ]]; then
@@ -54,5 +42,3 @@ mx() {
     cd "$previous_path"
   fi
 }
-
-alias gmx="mx -"

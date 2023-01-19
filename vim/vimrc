@@ -57,6 +57,9 @@ nnoremap <silent> <C-p> :bp<CR>
 nnoremap <silent> <C-x> :bp\|bd #<CR>
 nnoremap Y y$
 
+nnoremap <silent>B :<C-u>call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%^','bW')<CR>
+nnoremap <silent>W :<C-u>call search('\<\<Bar>\U\@<=\u\<Bar>\u\ze\%(\U\&\>\@!\)\<Bar>\%$','W')<CR>
+
 " Open new splits in the 'other' location
 set splitbelow
 set splitright

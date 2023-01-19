@@ -38,7 +38,7 @@ zstyle ':completion:*:manuals.(^1*)' insert-sections true
 __tmux-sessions() {
   local expl
   local -a sessions
-  sessions=( ${${(f)"$(command tmux list-sessions)"}/:[ $'\t']##/:} )
+  sessions=( $(command tmux list-sessions -F '#S') )
   _describe -t sessions 'sessions' sessions "$@"
 }
 compdef __tmux-sessions mx
@@ -50,7 +50,6 @@ __gcd-projects() {
   _describe -t projects 'projects' projects "$@"
 }
 compdef __gcd-projects gcd
-compdef __gcd-projects gmx
 
 __ssh_hosts() {
   local expl

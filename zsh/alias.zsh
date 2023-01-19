@@ -4,8 +4,10 @@ done
 alias -g CL=" | wc -l"
 alias -g CC=" | wc -c"
 alias -g LESS=" | less"
-alias -g ::=" ; send_tmux_message "
-alias -g '??'=" | grep"
+
+alias -g '::'=" | less"
+alias -g '??'=" | grep -E"
+alias -g ':?'=" | grep -vE"
 
 local short='...'
 local long='../..'

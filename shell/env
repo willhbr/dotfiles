@@ -3,3 +3,5 @@ export PROJECT_PATH="$HOME/projects"
 export GIT_REMOTES="glp|https://gitlab.com/;gh|git@github.com:;ghp|https://github.com/;gl|git@gitlab.com:;eng|git@eng-git.canterbury.ac.nz:"
 
 export PATH="$HOME/.local/bin:$PATH:$HOME/.local/df-bin:$HOME/.cargo/bin"
+
+eval "$(dircolors -b ~/.dircolors)"

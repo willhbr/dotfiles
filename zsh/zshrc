@@ -15,7 +15,7 @@ done
 autoload -U colors
 colors
 setopt prompt_subst
-PROMPT='%(?.%F{$HOST_COLOR}.%F{red})>%f '
+PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||>%f '
 
 # History
 setopt EXTENDED_HISTORY
@@ -48,6 +48,12 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
+preexec () {
+  local d=`date +"%H:%M:%S"`
+  local c=$(($COLUMNS-9))
+  echo -e "\033[1A\033[${c}C ${d}"
+}
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 
@@ -64,12 +70,12 @@ source ~/.shell/_welcome.sh
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"
 
+export FZF_TMUX_OPTS="-p"
+export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if [ -z "$TMUX" ]; then
   case $- in
     *i*) tmux attach ;;
   esac
 fi
-
-export FZF_TMUX_OPTS="-p"
-export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

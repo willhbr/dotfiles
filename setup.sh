@@ -45,3 +45,5 @@ link git/gitconfig ~/.gitconfig
 
 # No login motd
 touch ~/.hushlogin
+
+link dircolors ~/.dircolors
