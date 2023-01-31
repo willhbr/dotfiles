@@ -95,7 +95,7 @@ get_name_and_url() {
     *)
       url="$1"
       name="$2"
-      if [ ! -z "$3" ]; then
+      if [ -n "$3" ]; then
         echo "Invalid url prefix: $*"
         exit 1
       fi

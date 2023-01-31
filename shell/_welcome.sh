@@ -15,19 +15,19 @@ from_seconds() {
 
   if [ $d -gt 0 ]; then
     if [ $d = 1 ]; then printf "%d day " $d; else printf "%d days " $d; fi
-    if [ ! -z "$single" ]; then return; fi
+    if [ -n "$single" ]; then return; fi
   fi
   if [ $h -gt 0 ]; then
     if [ $h = 1 ]; then printf "%d hour " $h; else printf "%d hours " $h; fi
-    if [ ! -z "$single" ]; then return; fi
+    if [ -n "$single" ]; then return; fi
   fi
   if [ $m -gt 0 ]; then
     if [ $m = 1 ]; then printf "%d minute " $m; else printf "%d minutes " $m; fi
-    if [ ! -z "$single" ]; then return; fi
+    if [ -n "$single" ]; then return; fi
   fi
   if [ $d = 0 ] && [ $h = 0 ] && [ $m = 0 ]; then
     if [ $s = 1 ]; then printf "%d second" $s; else printf "%d seconds" $s; fi
-    if [ ! -z "$single" ]; then return; fi
+    if [ -n "$single" ]; then return; fi
   fi
 }
 

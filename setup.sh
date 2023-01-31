@@ -47,3 +47,7 @@ link git/gitconfig ~/.gitconfig
 touch ~/.hushlogin
 
 link dircolors ~/.dircolors
+
+# Common directories
+mkdir -p ~/projects
+mkdir -p ~/tmp
