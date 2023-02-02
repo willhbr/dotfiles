@@ -3,4 +3,8 @@ export PROJECT_PATHS="$HOME/projects"
 
 export PATH="$HOME/.local/bin:$PATH:$HOME/.local/df-bin:$HOME/.cargo/bin"
 
-eval "$(dircolors -b ~/.dircolors)"
+if [ "$(uname)" = Darwin ]; then
+  export CLICOLOR=1
+else
+  eval "$(dircolors -b ~/.dircolors)"
+fi
