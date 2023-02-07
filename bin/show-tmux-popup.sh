@@ -1,6 +1,6 @@
 #!/bin/bash
 
-session="_popup_$(tmux display -p '#S')"
+session="$(tmux display -p '_popup_#S')"
 
 if ! tmux has -t "$session" 2> /dev/null; then
   parent_session="$(tmux display -p '#{session_id}')"
