@@ -8,7 +8,7 @@ mx() {
   local name="$1"
 
   if [ -z "$name" ]; then
-    tmux ls -F '#S'
+    tmux ls -F '#S' -f '#{?#{m:_popup_*,#S},0,1}'
     return
   fi
 
@@ -37,8 +37,5 @@ mx() {
       tmux new -s "$name" -d
       tmux switch -t "$name"
     fi
-  fi
-  if [ ! -z "$previous_path" ]; then
-    cd "$previous_path"
   fi
 }
