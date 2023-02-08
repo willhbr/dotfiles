@@ -2,9 +2,9 @@
 	name = Will Richardson
 	email = william.hamish@gmail.com
 [core]
-	excludesfile = /home/will/.git-template/global-gitignore
+	excludesfile = ~/.git-template/global-gitignore
 [init]
-	templateDir = /home/will/.git-template
+	templateDir = ~/.git-template
 [pull]
 	rebase = true
 [alias]
@@ -15,4 +15,4 @@
 	xl = "!git log origin/$(git mainbranch)~1..HEAD"
 	publish = push origin HEAD --force-with-lease
 	pub = publish
-  amend = commit --amend --no-edit
+  amend = commit -a --amend --no-edit
