@@ -11,6 +11,10 @@ gcd() {
   fi
 
   for project_path in "$project_paths[@]"; do
+    if [ -d "$project_path/$1" ]; then
+      echo cd "$project_path/$1"
+      return 0
+    fi
     local project="$(ls "$project_path" | grep "^$1")"
     if [ -n "$project" ] && [ -d "$project_path/$project" ]; then
       echo cd "$project_path/$project"
