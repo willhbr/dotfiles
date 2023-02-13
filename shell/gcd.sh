@@ -14,6 +14,8 @@ gcd() {
     if [ -d "$project_path/$1" ]; then
       echo cd "$project_path/$1"
       cd "$project_path/$1"
+      printf "\033k${PWD##*/}\033\\"
+      which gcd_callback 2>&1 > /dev/null && gcd_callback "$project"
       return 0
     fi
     local project="$(ls "$project_path" | grep "^$1")"
