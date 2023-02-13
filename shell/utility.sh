@@ -2,13 +2,9 @@
 
 reload() {
   if [ -n "$BASH" ]; then
-    # source ~/.bashenv
-    # source ~/.bash_profile
     exec bash -l
   else
     exec zsh -l
-    # source ~/.zshenv
-    # source ~/.zshrc
   fi
 }
 

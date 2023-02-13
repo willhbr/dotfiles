@@ -48,7 +48,7 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
-preexec () {
+preexec() {
   local d=`date +"%H:%M:%S"`
   local c=$(($COLUMNS-9))
   echo -e "\033[1A\033[${c}C ${d}"
@@ -57,7 +57,6 @@ preexec () {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-
 export HIGHLIGHTING_ENABLED=true
 # Load config specific to this device
 __local_file="$HOME/.zshrc-local" 
@@ -65,17 +64,21 @@ if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.shell/_welcome.sh
 
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"
 
 export FZF_TMUX_OPTS="-p"
 export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -d /usr/share/doc/fzf/examples ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
+source ~/.shell/_welcome.sh
 
 if [ -z "$TMUX" ]; then
   case $- in
-    *i*) tmux attach ;;
+    *i*) tmux attach || mx tmux ;;
   esac
 fi

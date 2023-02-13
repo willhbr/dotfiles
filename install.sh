@@ -2,6 +2,10 @@
 
 set -e
 
+if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
+  sudo apt install fzf tmux vim zsh git tree figlet jq
+fi
+
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
