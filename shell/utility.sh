@@ -1,5 +1,9 @@
 #!/bin/bash
 
+bell() {
+  print '\a'
+}
+
 reload() {
   if [ -n "$BASH" ]; then
     exec bash -l
