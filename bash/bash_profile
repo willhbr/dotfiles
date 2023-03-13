@@ -13,7 +13,7 @@ function __prompt() {
   if [ $status -ne 0 ]; then
     color=9
   fi
-  PS1="\\033[38;5;${color}m> \[\033[0;37m\] "
+  PS1="\\033[38;5;${color}m||>\[\033[0;37m\] "
 }
 export PROMPT_COMMAND=__prompt
 

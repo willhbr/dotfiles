@@ -22,7 +22,7 @@ mx() {
     fi
   fi
 
-  name="${name//./}"
+  name="${name//./-}"
 
   if [ -z "$TMUX" ]; then
     if tmux has -t "$name" 2> /dev/null; then
