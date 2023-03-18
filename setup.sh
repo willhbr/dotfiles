@@ -49,5 +49,5 @@ touch ~/.hushlogin
 link dircolors ~/.dircolors
 
 # Common directories
-mkdir -p ~/projects
+mkdir -p ~/Projects
 mkdir -p ~/tmp

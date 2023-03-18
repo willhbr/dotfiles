@@ -1,5 +1,5 @@
 export EDITOR=vim
-export PROJECT_PATHS="$HOME/projects"
+export PROJECT_PATHS="$HOME/Projects"
 
 export PATH="$HOME/.local/bin:$PATH:$HOME/.local/df-bin:$HOME/.cargo/bin"
 
