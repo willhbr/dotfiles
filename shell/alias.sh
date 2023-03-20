@@ -35,3 +35,7 @@ else
   alias ls="ls --color=auto"
   alias grep="grep --color=auto"
 fi
+
+if which exa > /dev/null; then
+  alias ls=exa
+fi
