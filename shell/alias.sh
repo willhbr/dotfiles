@@ -26,6 +26,8 @@ alias gaa=" git add --all"
 alias gap=" git add --patch"
 alias gp=" git push"
 
+alias docker=podman
+
 # Global utilities
 
 if [ "$(uname)" = "Darwin" ]; then

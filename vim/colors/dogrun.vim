@@ -22,7 +22,7 @@ hi Normal guifg=#9ea3c0 ctermfg=146 guibg=#222433
 hi Delimiter guifg=#8085a6 ctermfg=103
 hi NonText guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE
 hi VertSplit guifg=#32364c ctermfg=237 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LineNr guifg=#32364c ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi LineNr guifg=#32364c ctermfg=243 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi EndOfBuffer guifg=#363859 ctermfg=60 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Comment guifg=#545c8c ctermfg=60 gui=NONE cterm=NONE
 hi Cursor guifg=#222433 ctermfg=235 guibg=#9ea3c0 ctermbg=146
@@ -31,7 +31,7 @@ hi SignColumn guifg=#545c8c ctermfg=60 guibg=NONE ctermbg=NONE
 hi ColorColumn guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
 hi CursorColumn guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
 hi CursorLine guibg=#2a2c3f ctermbg=236 gui=NONE cterm=NONE
-hi CursorLineNr guifg=#535f98 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi CursorLineNr guifg=#535f98 ctermfg=243 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Conceal guifg=#ac8b83 ctermfg=138 guibg=#222433 ctermbg=235 gui=NONE cterm=NONE
 hi NormalFloat guifg=#9ea3c0 ctermfg=146 guibg=#32364c ctermbg=237 gui=NONE cterm=NONE
 hi Folded guifg=#666c99 ctermfg=60 guibg=#32364c ctermbg=237 gui=NONE cterm=NONE
