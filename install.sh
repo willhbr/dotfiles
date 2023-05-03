@@ -6,6 +6,10 @@ if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
   sudo apt install fzf tmux vim zsh git tree figlet jq exa
 fi
 
+if ! [[ "$SHELL" = *zsh ]]; then
+  chsh -s "$(which zsh)"
+fi
+
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
