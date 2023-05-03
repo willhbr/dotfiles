@@ -4,19 +4,20 @@
 # Daniel Kertesz <daniel@spatof.org>
 # Translated to be bash compatible
 
-colnames=(
-  75  # light_blue
-  71  # green
-  229 # yellow
-  143 # blue
-  30  # turquoise
-  73  # cyan
-  143 # khaki
-  175 # pink
-  75  # cursor_blue
-)
-
 _hostname_color() {
+  local colnames
+  colnames=(
+    75  # light_blue
+    71  # green
+    229 # yellow
+    143 # blue
+    30  # turquoise
+    73  # cyan
+    143 # khaki
+    175 # pink
+    75  # cursor_blue
+  )
+
   ord() {
     printf '%d' "'$1"
   }

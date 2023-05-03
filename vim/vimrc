@@ -38,8 +38,6 @@ set showtabline=2
 
 " Tags
 nnoremap <silent> <leader>m :Tags<CR>
-let g:gutentags_cache_dir = expand('~/.tags')
-
 noremap <leader>p :set paste!<CR>
 
 " Allow for buffers in the background
@@ -56,6 +54,12 @@ nnoremap <silent> <C-n> :bn<CR>
 nnoremap <silent> <C-p> :bp<CR>
 nnoremap <silent> <C-x> :bp\|bd #<CR>
 nnoremap Y y$
+
+nnoremap L $
+nnoremap H ^
+nnoremap K {
+nnoremap J }
+nnoremap <silent> <leader>j :join<CR>
 
 " Open new splits in the 'other' location
 set splitbelow

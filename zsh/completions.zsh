@@ -38,7 +38,7 @@ zstyle ':completion:*:manuals.(^1*)' insert-sections true
 __tmux-sessions() {
   local expl
   local -a sessions
-  sessions=( $(command tmux list-sessions -F '#S') )
+  sessions=( $(mx) )
   _describe -t sessions 'sessions' sessions "$@"
 }
 compdef __tmux-sessions mx
