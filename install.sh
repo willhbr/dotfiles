@@ -10,6 +10,15 @@ if ! [[ "$SHELL" = *zsh ]]; then
   chsh -s "$(which zsh)"
 fi
 
+keyfile=~/.ssh/id_ed25519
+if [ ! -f "$keyfile" ]; then
+  ssh-keygen -t ed25519 -f $keyfile -N ''
+fi
+
+if [ "$1" = "keys" ] && [ ! -f ~/.ssh/authorized_keys ]; then
+  curl -L https://github.com/willhbr.keys > ~/.ssh/authorized_keys
+fi
+
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
