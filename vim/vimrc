@@ -59,7 +59,12 @@ nnoremap L $
 nnoremap H ^
 nnoremap K {
 nnoremap J }
+vnoremap L $
+vnoremap H ^
+vnoremap K {
+vnoremap J }
 nnoremap <silent> <leader>j :join<CR>
+vnoremap <silent> <leader>j :join<CR>
 
 " Open new splits in the 'other' location
 set splitbelow
