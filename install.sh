@@ -15,8 +15,8 @@ if [ ! -f "$keyfile" ]; then
   ssh-keygen -t ed25519 -f $keyfile -N ''
 fi
 
-if [ "$1" = "keys" ] && [ ! -f ~/.ssh/authorized_keys ]; then
-  curl -L https://github.com/willhbr.keys > ~/.ssh/authorized_keys
+if [ "$1" = "keys" ]; then
+  curl -L https://github.com/willhbr.keys >> ~/.ssh/authorized_keys
 fi
 
 # ZSH
