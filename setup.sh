@@ -43,6 +43,9 @@ link tmux/tmux.conf ~/.tmux.conf
 link git/template ~/.git-template
 link git/gitconfig ~/.gitconfig
 
+# SSH
+link ssh/config ~/.ssh/config
+
 # No login motd
 touch ~/.hushlogin
 
