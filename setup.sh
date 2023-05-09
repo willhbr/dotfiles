@@ -32,10 +32,6 @@ link bash/bash_profile ~/.bash_profile
 link zsh ~/.zsh
 link zsh/zshrc ~/.zshrc
 
-# Pry
-link pry/irbrc ~/.irbrc
-link pry/pryrc ~/.pryrc
-
 # Tmux
 link tmux/tmux.conf ~/.tmux.conf
 
