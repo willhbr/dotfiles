@@ -2,13 +2,13 @@
 	name = Will Richardson
 	email = william.hamish@gmail.com
 [core]
-	excludesfile = ~/.git-template/global-gitignore
+	excludesfile = ~/.global-gitignore
 [init]
-	templateDir = ~/.git-template
+	defaultBranch = main
 [pull]
 	rebase = true
 [alias]
-	mainbranch = "!git branch -r | sed -nr 's/.*origin\\/HEAD -> origin\\/(.*)$/\\1/p'"
+	mainbranch = "!git branch -r | sed -nr 's/^\\s*origin\\/(main|master)$/\\1/p' | head -n 1"
 	sync = "!git pull origin $(git mainbranch) --rebase"
 	update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
 	histedit = "!git rebase -v -i $(git mainbranch)"

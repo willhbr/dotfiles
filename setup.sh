@@ -36,8 +36,8 @@ link zsh/zshrc ~/.zshrc
 link tmux/tmux.conf ~/.tmux.conf
 
 # Git
-link git/template ~/.git-template
 link git/gitconfig ~/.gitconfig
+link git/global-gitignore ~/.global-gitignore
 
 # SSH
 link ssh/config ~/.ssh/config
