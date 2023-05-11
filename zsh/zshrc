@@ -77,7 +77,7 @@ fi
 
 source ~/.shell/_welcome.sh
 
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
     *i*) tmux attach || mx tmux ;;
   esac
