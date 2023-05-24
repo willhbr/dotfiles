@@ -11,7 +11,7 @@
 	mainbranch = "!git branch -r | sed -nr 's/^\\s*origin\\/(main|master)$/\\1/p' | head -n 1"
 	sync = "!git pull origin $(git mainbranch) --rebase"
 	update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
-	histedit = "!git rebase -v -i $(git mainbranch)"
+	histedit = "!git rebase -v -i origin/$(git mainbranch)"
 	xl = "!git log origin/$(git mainbranch)~1..HEAD"
 	publish = push origin HEAD --force-with-lease
 	pub = publish
