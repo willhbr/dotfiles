@@ -18,6 +18,7 @@ link() {
 # Vim
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
+link editorconfig ~/.editorconfig
 
 # Generic shell
 link shell ~/.shell

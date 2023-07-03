@@ -3,7 +3,7 @@
 set -e
 
 if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
-  sudo apt install fzf tmux vim zsh git tree figlet jq exa
+  sudo apt install fzf tmux vim zsh git tree figlet jq exa ripgrep
 fi
 
 if ! [[ "$SHELL" = *zsh ]]; then
@@ -33,6 +33,7 @@ pug get vim github: itchyny/lightline.vim
 pug get vim github: mgee/lightline-bufferline
 pug get vim github: lfv89/vim-interestingwords
 pug get vim github: rust-lang/rust.vim
+pug get vim github: editorconfig/editorconfig-vim
 
 # Vim Syntax files
 
