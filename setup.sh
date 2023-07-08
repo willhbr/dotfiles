@@ -43,6 +43,10 @@ link git/global-gitignore ~/.global-gitignore
 # SSH
 link ssh/config ~/.ssh/config
 
+# Pod
+
+link pod/script.yaml ~/.config/pod/script.yaml
+
 # No login motd
 touch ~/.hushlogin
 

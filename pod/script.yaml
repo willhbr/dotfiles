@@ -1,0 +1,32 @@
+types:
+  cr:
+    name: crystal
+    image: docker.io/crystallang/crystal:latest-alpine
+    interactive: true
+    autoremove: true
+    bind_mounts:
+      .: /src
+      ~/.cache/crystal: /root/.cache/crystal
+    run_flags:
+      workdir: /src
+      entrypoint: ['crystal', 'run', '--error-trace']
+  py:
+    name: python
+    image: docker.io/library/3.9-alpine
+    interactive: true
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['python']
+  rb:
+    name: ruby
+    image: docker.io/library/ruby:alpine
+    interactive: true
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['ruby']
