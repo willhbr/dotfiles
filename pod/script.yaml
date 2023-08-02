@@ -1,8 +1,7 @@
-types:
+scripts:
   cr:
     name: crystal
     image: docker.io/crystallang/crystal:latest-alpine
-    interactive: true
     autoremove: true
     bind_mounts:
       .: /src
@@ -10,10 +9,18 @@ types:
     run_flags:
       workdir: /src
       entrypoint: ['crystal', 'run', '--error-trace']
+  ex:
+    name: elixir
+    image: docker.io/library/elixir:alpine
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['elixir']
   py:
     name: python
-    image: docker.io/library/3.9-alpine
-    interactive: true
+    image: docker.io/library/python:3.9-alpine
     autoremove: true
     bind_mounts:
       .: /src
@@ -23,10 +30,37 @@ types:
   rb:
     name: ruby
     image: docker.io/library/ruby:alpine
-    interactive: true
     autoremove: true
     bind_mounts:
       .: /src
     run_flags:
       workdir: /src
       entrypoint: ['ruby']
+  swift:
+    name: swift
+    image: docker.io/library/swift:latest
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['swift']
+repls:
+  py:
+    name: python
+    image: docker.io/library/python:3.9-alpine
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['python']
+  ruby:
+    name: ruby
+    image: docker.io/library/ruby:alpine
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['irb']
