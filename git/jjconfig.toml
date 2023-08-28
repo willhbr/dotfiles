@@ -4,9 +4,14 @@ email = "william.hamish@gmail.com"
 
 [ui]
 default-command = "status"
+diff-editor = ["scm-diff-editor", "--dir-diff", "$left", "$right"]
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
 'format_short_id(id)' = 'id.shortest()'
 'format_short_signature(signature)' = 'signature.name()'
+
+[aliases]
+# While working with jj-git, use this to point main to the latest non-working-copy change
+setmain = ["branch", "set", "main", "-r", "@-"]
 

@@ -16,7 +16,7 @@ gcd() {
       cd "$project_path/$1"
       chpwd
       printf "\033k${PWD##*/}\033\\"
-      which gcd_callback 2>&1 > /dev/null && gcd_callback "$project"
+      is_defined gcd_callback && gcd_callback "$project"
       return 0
     fi
     local project="$(ls "$project_path" | grep "^$1")"
@@ -25,7 +25,7 @@ gcd() {
       cd "$project_path/$project"
       chpwd
       printf "\033k${PWD##*/}\033\\"
-      which gcd_callback 2>&1 > /dev/null && gcd_callback "$project"
+      is_defined gcd_callback && gcd_callback "$project"
       return 0
     fi
   done

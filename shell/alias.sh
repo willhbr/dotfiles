@@ -47,6 +47,6 @@ else
   alias grep="grep --color=auto"
 fi
 
-if which exa > /dev/null; then
+if which exa > /dev/null 2>&1; then
   alias ls=exa
 fi
