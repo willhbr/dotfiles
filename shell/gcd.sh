@@ -14,6 +14,7 @@ gcd() {
     if [ -d "$project_path/$1" ]; then
       echo cd "$project_path/$1"
       cd "$project_path/$1"
+      chpwd
       printf "\033k${PWD##*/}\033\\"
       which gcd_callback 2>&1 > /dev/null && gcd_callback "$project"
       return 0
@@ -22,6 +23,7 @@ gcd() {
     if [ -n "$project" ] && [ -d "$project_path/$project" ]; then
       echo cd "$project_path/$project"
       cd "$project_path/$project"
+      chpwd
       printf "\033k${PWD##*/}\033\\"
       which gcd_callback 2>&1 > /dev/null && gcd_callback "$project"
       return 0

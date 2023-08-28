@@ -12,13 +12,22 @@ alias py="python3"
 alias :q="exit"
 
 # Git
-alias g=git
+chpwd() {
+  if [ -e .jj ]; then
+    alias git=jj
+    return
+  fi
+  if [ -e .git ]; then
+    alias git=/usr/bin/git
+    return
+  fi
+}
+alias g="git"
 alias gs=" git status"
-alias gd=" git diff --cached"
-alias gdn=" git diff"
+alias gd=" git diff"
 alias gcm=" git commit -m"
 alias gc=" git commit"
-alias gl=" git xl"
+alias gl=" git log"
 alias gch=" git checkout"
 alias gb=" git branch"
 alias gaa=" git add --all"

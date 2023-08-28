@@ -16,3 +16,4 @@
 	publish = push origin HEAD --force-with-lease
 	pub = publish
   amend = commit -a --amend --no-edit
+  unstage = restore --staged
