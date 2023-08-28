@@ -1,3 +1,12 @@
-user.name = "Will Richardson"
-user.email = "william.hamish@gmail.com"
+[user]
+name = "Will Richardson"
+email = "william.hamish@gmail.com"
+
+[ui]
+default-command = "status"
+
+[template-aliases]
+'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_short_id(id)' = 'id.shortest()'
+'format_short_signature(signature)' = 'signature.name()'
 

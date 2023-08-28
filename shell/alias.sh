@@ -22,6 +22,7 @@ chpwd() {
     return
   fi
 }
+chpwd
 alias g="git"
 alias gs=" git status"
 alias gd=" git diff"
