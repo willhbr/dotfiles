@@ -24,18 +24,13 @@ mx() {
 
   name="${name//./-}"
 
-  if [ -z "$TMUX" ]; then
-    if tmux has -t "$name" 2> /dev/null; then
-      tmux attach -t "$name"
-    else
-      tmux new -s "$name"
-    fi
+  if ! tmux has -t "$name" 2> /dev/null; then
+    tmux new -s "$name" -d
+  fi
+  if [ -n "$TMUX" ]; then
+    tmux move-window -b -t "$name:{start}"
+    tmux switch -t "$name"
   else
-    if tmux has -t "$name" 2> /dev/null; then
-      tmux switch -t "$name"
-    else
-      tmux new -s "$name" -d
-      tmux switch -t "$name"
-    fi
+    tmux attach -t "$name"
   fi
 }
