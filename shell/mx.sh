@@ -24,13 +24,27 @@ mx() {
 
   name="${name//./-}"
 
-  if ! tmux has -t "$name" 2> /dev/null; then
-    tmux new -s "$name" -d
+  if [ -z "$TMUX" ]; then
+    tmux new-session -A -t "$name"
+    return
   fi
-  if [ -n "$TMUX" ]; then
+  local window_count="$(tmux display -p '#{session_windows}')"
+  if tmux has -t "$name" 2> /dev/null; then
+    if [ "$window_count" = 1 ]; then
+      tmux new-window 'sleep 1'
+    fi
     tmux move-window -b -t "$name:{start}"
     tmux switch -t "$name"
+    echo "switched to: $name"
   else
-    tmux attach -t "$name"
+    if [ "$window_count" = 1 ]; then
+      tmux rename-session "$name"
+      echo "renamed to: $name"
+    else
+      tmux new -s "$name" -d 'sleep 1'
+      tmux move-window -b -t "$name:{start}"
+      tmux switch -t "$name"
+      echo "new session: $name"
+    fi
   fi
 }
