@@ -25,7 +25,7 @@ mx() {
   name="${name//./-}"
 
   if [ -z "$TMUX" ]; then
-    tmux new-session -A -t "$name"
+    tmux new-session -A -s "$name"
     return
   fi
   local window_count="$(tmux display -p '#{session_windows}')"
