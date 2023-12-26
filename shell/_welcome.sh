@@ -8,11 +8,15 @@ from_seconds() {
   local t="$1"
   local single="$2"
 
-  local d=$((t/60/60/24))
+  local w=$((t/60/60/24/7))
+  local d=$((t/60/60/24%7))
   local h=$((t/60/60%24))
   local m=$((t/60%60))
   local s=$((t%60))
 
+  if [ $w -gt 0 ]; then
+    if [ $w = 1 ]; then printf "%d week " $w; else printf "%d weeks " $w; fi
+  fi
   if [ $d -gt 0 ]; then
     if [ $d = 1 ]; then printf "%d day " $d; else printf "%d days " $d; fi
     if [ -n "$single" ]; then return; fi
