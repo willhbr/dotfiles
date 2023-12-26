@@ -17,7 +17,7 @@ set nowrap
 
 " Change syntax based on file types
 syntax on
-filetype plugin indent on 
+filetype plugin indent on
 colorscheme dogrun
 
 " 2 space indent is life
@@ -109,12 +109,6 @@ let g:lightline = {
 \     ]
 \   },
 \ }
-let g:lightline.separator = {
-\   'left': '', 'right': ''
-\}
-let g:lightline.subseparator = {
-\   'left': '', 'right': ''
-\}
 let g:lightline.tabline          = {'left': [['buffers']], 'right': []}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}

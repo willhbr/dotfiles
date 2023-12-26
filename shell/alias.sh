@@ -1,6 +1,8 @@
 #!/bin/bash
 alias f="$EDITOR"
 alias :e="$EDITOR"
+alias :vsp='tmux split-window -h'
+alias :sp='tmux split-window -v'
 alias paste='tmux show-buffer'
 alias copyf='tmux load-buffer'
 alias copy='tmux set-buffer'
