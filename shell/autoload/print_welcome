@@ -41,28 +41,19 @@ pretty_uptime() {
   from_seconds "$upt" "$1"
 }
 
-print_welcome() {
-  _hostname_color
-  echo -ne "\033[38;5;${HOST_COLOR}m"
-  local message
-  if [ -f ~/.welcome ]; then
-    message="$(cat ~/.welcome)"
-  else
-    message="$(whoami) / $(hostname -s)"
-  fi
-  if command -v figlet > /dev/null; then
-    figlet "$message"
-  else
-    echo "$message"
-  fi
-  if [ -e /proc/uptime ]; then pretty_uptime --single; fi
-  echo -e "\033[0m"
-  mx
-}
-
-if [ -z "$TMUX" ]; then
-  case "$-" in
-  *i*) print_welcome ;;
-  *) ;;
-  esac
+hostname_color
+echo -ne "\033[38;5;${HOST_COLOR}m"
+local message
+if [ -f ~/.welcome ]; then
+  message="$(cat ~/.welcome)"
+else
+  message="$(whoami) / $(hostname -s)"
 fi
+if command -v figlet > /dev/null; then
+  figlet "$message"
+else
+  echo "$message"
+fi
+if [ -e /proc/uptime ]; then pretty_uptime --single; fi
+echo -e "\033[0m"
+mx

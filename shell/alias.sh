@@ -41,14 +41,17 @@ alias docker=podman
 
 # Global utilities
 
-if [ "$(uname)" = "Darwin" ]; then
+if [ -d /Users ]; then
+  export CLICOLOR=1
   alias ls="ls -G"
   alias finder="open ."
 else
   alias ls="ls --color=auto"
   alias grep="grep --color=auto"
+  eval "$(dircolors -b ~/.dircolors)"
 fi
 
 if which exa > /dev/null 2>&1; then
   alias ls=exa
 fi
+

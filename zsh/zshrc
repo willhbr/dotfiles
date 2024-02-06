@@ -1,19 +1,34 @@
 #!/bin/zsh
 
-for file in ~/.shell/*.sh; do
-  if ! [[ "$(basename "$file")" = _* ]]; then
-    source "$file"
-  fi
-done
-autoload -U compinit && compinit
+funcpath="$HOME/.shell/autoload"
+FPATH="$funcpath:$FPATH"
+autoload ${=$(cd "$funcpath" && echo *)}
+unset funcpath
 
-for file in ~/.zsh/*.zsh; do
-  source "$file"
+source ~/.shell/alias.sh
+source ~/.zsh/completions.zsh
+
+# ALIASES
+for mode in +x -x +r -r +w -r 777 755; do
+  eval "$mode() { chmod $mode \"\$@\" }"
+done
+alias -g CL=" | wc -l"
+alias -g CC=" | wc -c"
+alias -g LESS=" | less"
+
+alias -g '::'=" | less"
+alias -g '??'=" | grep -E"
+alias -g ':?'=" | grep -vE"
+
+local short='...'
+local long='../..'
+for dots in {1..10}; do
+  alias -g $short=$long
+  short="${short}."
+  long="$long/.."
 done
 
 # Prompt
-autoload -U colors
-colors
 setopt prompt_subst
 PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||>%f '
 
@@ -59,7 +74,7 @@ zle -N zle-keymap-select
 
 export HIGHLIGHTING_ENABLED=true
 # Load config specific to this device
-__local_file="$HOME/.zshrc-local" 
+__local_file="$HOME/.zshrc-local"
 if [ -e $__local_file ]; then
   source $__local_file
 fi
@@ -74,10 +89,8 @@ if [ -d /usr/share/doc/fzf/examples ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
-source ~/.shell/_welcome.sh
-
 if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
-    *i*) tmux attach || mx tmux ;;
+    *i*) print_welcome; tmux attach || mx tmux ;;
   esac
 fi

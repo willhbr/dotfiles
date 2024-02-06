@@ -1,10 +1,9 @@
 #!/bin/bash
 
-for file in ~/.shell/*.sh; do
-  if ! [[ "$(basename "$file")" = _* ]]; then
-    source "$file"
-  fi
+for file in ~/.shell/autoload/*; do
+  eval "$(basename "$file")() { $(cat "$file"); }"
 done
+source ~/.shell/alias.sh
 
 # Prompt
 function __prompt() {
@@ -18,9 +17,13 @@ function __prompt() {
 export PROMPT_COMMAND=__prompt
 
 # Load config specific to this device
-__local_file="$HOME/.bash_profile-local" 
+__local_file="$HOME/.bash_profile-local"
 if [ -e $__local_file ]; then
   source $__local_file
 fi
 
-source ~/.shell/_welcome.sh
+if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
+  case $- in
+    *i*) print_welcome; tmux attach || mx tmux ;;
+  esac
+fi
