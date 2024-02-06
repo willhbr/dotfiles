@@ -4,7 +4,7 @@ email = "william.hamish@gmail.com"
 
 [ui]
 default-command = "status"
-diff-editor = ["scm-diff-editor", "--dir-diff", "$left", "$right"]
+# diff-editor = ["scm-diff-editor", "--dir-diff", "$left", "$right"]
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'
@@ -14,4 +14,6 @@ diff-editor = ["scm-diff-editor", "--dir-diff", "$left", "$right"]
 [aliases]
 # While working with jj-git, use this to point main to the latest non-working-copy change
 setmain = ["branch", "set", "main", "-r", "@-"]
-
+sync = ['git', 'fetch', '--all-remotes']
+evolve = ['rebase', '-d', 'main']
+push = ['git', 'push', '--all']
