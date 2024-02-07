@@ -41,7 +41,6 @@ pretty_uptime() {
   from_seconds "$upt" "$1"
 }
 
-hostname_color
 echo -ne "\033[38;5;${HOST_COLOR}m"
 local message
 if [ -f ~/.welcome ]; then

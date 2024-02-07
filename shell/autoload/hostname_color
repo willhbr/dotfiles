@@ -21,7 +21,7 @@ ord() {
 }
 
 if [ -f ~/.prompt-color ]; then
-  HOST_COLOR=$(cat ~/.prompt-color)
+  export HOST_COLOR=$(cat ~/.prompt-color)
   return
 fi
 local chash=0

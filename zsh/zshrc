@@ -89,6 +89,8 @@ if [ -d /usr/share/doc/fzf/examples ]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
 
+hostname_color
+
 if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
     *i*) print_welcome; tmux attach || mx tmux ;;

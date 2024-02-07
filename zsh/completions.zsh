@@ -1,4 +1,6 @@
 # Tmux completion (From Julius: github.com/Feh)
+autoload -U compinit && compinit
+
 _tmux_pane_words() {
   local expl
   local -a w
