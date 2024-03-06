@@ -20,8 +20,11 @@ ord() {
   printf '%d' "'$1"
 }
 
+if [ -n "$HOST_COLOR" ]; then
+  return
+fi
 if [ -f ~/.prompt-color ]; then
-  export HOST_COLOR=$(cat ~/.prompt-color)
+  export HOST_COLOR="$(cat ~/.prompt-color)"
   return
 fi
 local chash=0
