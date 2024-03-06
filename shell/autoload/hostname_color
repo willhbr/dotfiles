@@ -38,4 +38,3 @@ done
 local crand=$((chash % ${#colnames}))
 if [ -z "$BASH" ]; then ((crand++)); fi
 export HOST_COLOR=${colnames[$crand]}
-

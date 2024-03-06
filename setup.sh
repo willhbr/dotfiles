@@ -15,6 +15,10 @@ link() {
   ln -fs "$path" "$dest"
 }
 
+# Kitty
+
+link kitty/kitty.conf ~/.config/kitty/kitty.conf
+
 # Vim
 link vim ~/.vim
 link vim/vimrc ~/.vimrc
