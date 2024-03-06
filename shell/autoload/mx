@@ -26,22 +26,25 @@ if [ -z "$TMUX" ]; then
   tmux new-session -A -s "$name"
   return
 fi
+local wait_for="mx_window_moves_$name"
 local window_count="$(tmux display -p '#{session_windows}')"
 if tmux has -t "$name" 2> /dev/null; then
   if [ "$window_count" = 1 ]; then
-    tmux new-window 'sleep 1'
+    tmux new-window -d "tmux wait-for '$wait_for'"
   fi
   tmux move-window -b -t "$name:{start}"
   tmux switch -t "$name"
   echo "switched to: $name"
+  tmux wait-for -S "$wait_for"
 else
   if [ "$window_count" = 1 ]; then
     tmux rename-session "$name"
     echo "renamed to: $name"
   else
-    tmux new -s "$name" -d 'sleep 1'
+    tmux new -s "$name" -d "tmux wait-for '$wait_for'"
     tmux move-window -b -t "$name:{start}"
     tmux switch -t "$name"
     echo "new session: $name"
   fi
+  tmux wait-for -S "$wait_for"
 fi
