@@ -1,0 +1,42 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = """\
+$directory\
+${custom.jj}\
+$line_break\
+$character"""
+
+# palette = 'everforest'
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+style = "bold blue"
+
+[custom.jj]
+command=""" jj log -l 1 | grep '│' | cut -c4- """
+when=""" [[ `git rev-parse --is-inside-work-tree 2>&1` = "true" ]] """ 
+style = "fg:7"
+format = "[ @ ($output) ]($style)"
+
+[package]
+disabled = false
+display_private = false
+
+[python]
+python_binary = "python3"
+
+# [palettes.everforest]
+# white = "#D3C6AA"
+# cyan = "#7FBBB3"
+# green = "#A7C080"
+# blue = "#83C092"
+# orange = "#E69875"
+# red = "#E67E80"
+# brown = "#E69875"
+# yellow = "#DBBC7F"
+# gray = ""

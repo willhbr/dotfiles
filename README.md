@@ -32,11 +32,3 @@ install.sh on a new computer installs all dependencies needed by the shell.
 - `mx` has nice aliases for many tmux commands.
 - `+x file` runs `chmod +x file`
 
-
-## TODO
-
-- [ ] Neovim
-- [ ] Colors
-- [ ] Starship
-
-https://www.youtube.com/watch?v=DzNmUNvnB04&t=116s

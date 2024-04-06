@@ -27,6 +27,10 @@ deps=(
   ripgrep
   # Smarter cd
   zoxide
+  # Sexy prompt
+  starship
+  # Neovim + chad neovim for code editing.
+  neovim
 )
 
 for dep in ${deps[@]}; do
@@ -40,3 +44,9 @@ fi
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
+
+# Tmux
+pug get tmux github: catppuccin/tmux
+
+echo "Reccomended Terminal: https://wezfurlong.org/wezterm/index.html"
+echo "Reccomended Tiler: https://github.com/koekeishiya/yabai"
