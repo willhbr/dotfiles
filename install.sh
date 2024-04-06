@@ -2,46 +2,41 @@
 
 set -e
 
-if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
-  sudo apt install fzf tmux vim zsh git tree figlet jq exa ripgrep podman
+if ! command -v brew &> /dev/null
+then
+  echo "Brew not installed. Installing it..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+deps=(
+  # Obvious.
+  tmux
+  vim
+  zsh
+  git
+  jj
+  # Fast fuzzy search.
+  fzf
+  # Traverse, query, filter and process json files.
+  jq
+  # Ls but better. ls gets auto mapped to this in alias.sh
+  eza
+  # Ls but print a tree.
+  tree
+  # Grep but recursively searched all files. Use with rr.
+  ripgrep
+  # Smarter cd
+  zoxide
+)
+
+for dep in ${deps[@]}; do
+  brew install $dep
+done
 
 if ! [[ "$SHELL" = *zsh ]]; then
   chsh -s "$(which zsh)"
 fi
 
-keyfile=~/.ssh/id_ed25519
-if [ ! -f "$keyfile" ]; then
-  ssh-keygen -t ed25519 -f $keyfile -N ''
-fi
-
-if [ "$1" = "keys" ]; then
-  curl -L https://github.com/willhbr.keys >> ~/.ssh/authorized_keys
-fi
-
 # ZSH
 pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
-
-# Vim Plugins
-pug get vim github: ctrlpvim/ctrlp.vim
-pug get vim github: ervandew/supertab
-pug get vim github: jiangmiao/auto-pairs
-pug get vim github: vim-syntastic/syntastic
-pug get vim github: rhysd/vim-crystal
-pug get vim github: itchyny/lightline.vim
-pug get vim github: mgee/lightline-bufferline
-pug get vim github: lfv89/vim-interestingwords
-pug get vim github: rust-lang/rust.vim
-pug get vim github: editorconfig/editorconfig-vim
-
-# Vim Syntax files
-
-pug get vim github: udalov/kotlin-vim
-pug get vim github: keith/swift.vim
-pug get vim github: elixir-editors/vim-elixir
-
-# Vim/ tmux navigation
-
-pug get vim github: willhbr/vim-tmux-navigator
-pug get tmux github: willhbr/vim-tmux-navigator

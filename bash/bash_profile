@@ -5,23 +5,6 @@ for file in ~/.shell/autoload/*; do
 done
 source ~/.shell/alias.sh
 
-# Prompt
-function __prompt() {
-  local status=$?
-  local color=$HOST_COLOR
-  if [ $status -ne 0 ]; then
-    color=9
-  fi
-  PS1="\\033[38;5;${color}m||>\[\033[0;37m\] "
-}
-export PROMPT_COMMAND=__prompt
-
-# Load config specific to this device
-__local_file="$HOME/.bash_profile-local"
-if [ -e $__local_file ]; then
-  source $__local_file
-fi
-
 if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
     *i*) print_welcome; tmux attach || mx tmux ;;

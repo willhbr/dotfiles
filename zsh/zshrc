@@ -27,7 +27,6 @@ for dots in {1..10}; do
   short="${short}."
   long="$long/.."
 done
-
 # Prompt
 setopt prompt_subst
 PROMPT='%(?.%F{$HOST_COLOR}.%F{red})||>%f '
@@ -43,50 +42,14 @@ setopt inc_append_history share_history
 
 REPORTTIME=10
 
-# Vim key bindings
-
-bindkey -v
-export KEYTIMEOUT=50
-
-bindkey -M viins 'jk' vi-cmd-mode
-bindkey -M viins 'Jk' vi-cmd-mode
-bindkey -M viins 'JK' vi-cmd-mode
-bindkey -M viins 'jK' vi-cmd-mode
-# Allow deleting into non-inserted text
-bindkey "^?" backward-delete-char
-# I do "jkk" to run the prev command, and if I miss the j I want it to still work
-alias kk=r
-
-function zle-line-init zle-keymap-select {
-  VIM_PROMPT="-- NORMAL --"
-  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
-  zle reset-prompt
-}
-
-preexec() {
-  local d=`date +"%H:%M:%S"`
-  local c=$(($COLUMNS-9))
-  echo -e "\033[1A\033[${c}C ${d}"
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-export HIGHLIGHTING_ENABLED=true
-# Load config specific to this device
-__local_file="$HOME/.zshrc-local"
-if [ -e $__local_file ]; then
-  source $__local_file
-fi
-
 # Pug installed
 source "$HOME/.pug/source/zsh/pug"
 
 export FZF_TMUX_OPTS="-p"
 export FZF_CTRL_R_OPTS="--reverse --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-if [ -d /usr/share/doc/fzf/examples ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
+if [ -d /opt/homebrew/Cellar/fzf/*/shell/ ]; then
+  source /opt/homebrew/Cellar/fzf/*/shell/key-bindings.zsh
 fi
 
 hostname_color
@@ -95,4 +58,8 @@ if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
     *i*) print_welcome; tmux attach || mx tmux ;;
   esac
+fi
+
+if which z > /dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
 fi

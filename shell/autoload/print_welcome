@@ -48,11 +48,9 @@ if [ -f ~/.welcome ]; then
 else
   message="$(whoami) / $(hostname -s)"
 fi
-if command -v figlet > /dev/null; then
-  figlet "$message"
-else
-  echo "$message"
-fi
+
+echo "$message"
+
 if [ -e /proc/uptime ]; then pretty_uptime --single; fi
 echo -e "\033[0m"
 mx

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Allows you to install vim & zsh plugins super easily and cleanly.
+
 set -e
 shopt -s nullglob
 
