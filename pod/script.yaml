@@ -74,3 +74,12 @@ repls:
     run_flags:
       workdir: /src
       entrypoint: ['irb']
+  javascript:
+    name: javascript
+    image: docker.io/library/node:alpine
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['node']

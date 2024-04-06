@@ -4,6 +4,7 @@ email = "william.hamish@gmail.com"
 
 [ui]
 default-command = "status"
+diff-editor = ":builtin"
 
 [template-aliases]
 'format_timestamp(timestamp)' = 'timestamp.ago()'

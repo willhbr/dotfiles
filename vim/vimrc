@@ -57,25 +57,20 @@ nnoremap Y y$
 
 nnoremap L $
 nnoremap H ^
-nnoremap K {
-nnoremap J }
 vnoremap L $
 vnoremap H ^
-vnoremap K {
-vnoremap J }
-nnoremap <silent> <leader>j :join<CR>
-vnoremap <silent> <leader>j :join<CR>
 
 let b:comment_leader = '# '
 augroup commenting_blocks_of_code
   autocmd!
-  autocmd filetype c,cpp,java,scala let b:comment_leader = '//'
-  autocmd filetype sh,ruby,python   let b:comment_leader = '#'
-  autocmd filetype crystal          let b:comment_leader = '#'
-  autocmd filetype conf,fstab       let b:comment_leader = '#'
-  autocmd filetype tex              let b:comment_leader = '%'
-  autocmd filetype mail             let b:comment_leader = '>'
-  autocmd filetype vim              let b:comment_leader = '"'
+  autocmd filetype c,cpp,java,scala let b:comment_leader = '// '
+  autocmd filetype swift            let b:comment_leader = '// '
+  autocmd filetype sh,ruby,python   let b:comment_leader = '# '
+  autocmd filetype crystal          let b:comment_leader = '# '
+  autocmd filetype conf,fstab       let b:comment_leader = '# '
+  autocmd filetype tex              let b:comment_leader = '% '
+  autocmd filetype mail             let b:comment_leader = '> '
+  autocmd filetype vim              let b:comment_leader = '" '
 augroup end
 noremap <silent> <leader>c :<c-b>silent <c-e>s/^/<c-r>=escape(b:comment_leader, ' \/') <cr>/<cr>:nohlsearch<cr>
 noremap <silent> <leader>C :<c-b>silent <c-e>s/^\v<c-r>=escape(b:comment_leader, '( \|$)\/')<cr>//e<cr>:nohlsearch<cr>

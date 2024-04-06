@@ -11,7 +11,6 @@ for project_path in "$project_paths[@]"; do
   if [ -d "$project_path/$1" ]; then
     echo cd "$project_path/$1"
     cd "$project_path/$1"
-    chpwd
     printf "\033k${PWD##*/}\033\\"
     is_defined gcd_callback && gcd_callback "$project"
     return 0
@@ -20,7 +19,6 @@ for project_path in "$project_paths[@]"; do
   if [ -n "$project" ] && [ -d "$project_path/$project" ]; then
     echo cd "$project_path/$project"
     cd "$project_path/$project"
-    chpwd
     printf "\033k${PWD##*/}\033\\"
     is_defined gcd_callback && gcd_callback "$project"
     return 0
