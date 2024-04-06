@@ -13,17 +13,6 @@ alias py="python3"
 
 alias :q="exit"
 
-# Git
-alias g="jj"
-alias gs=" g status"
-alias gd=" g diff"
-alias gcm=" g commit -m"
-alias gc=" g commit"
-alias gl=" g log"
-alias gp=" g push"
-
-alias docker=podman
-
 # Global utilities
 
 if [ -d /Users ]; then
@@ -36,7 +25,10 @@ else
   eval "$(dircolors -b ~/.dircolors)"
 fi
 
-if which exa > /dev/null 2>&1; then
-  alias ls=exa
+if which eza > /dev/null 2>&1; then
+  alias ls="eza --icons"
 fi
 
+if which z > /dev/null 2>&1; then
+  alias cd=zoxide
+fi

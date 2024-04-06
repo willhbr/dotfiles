@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# in the pod world we don't have crystal installed, but I want an autoformatter
-# exec podman run -i --rm --network=none --entrypoint=crystal \
-#   --mount=type=bind,src=.,dst=/src --workdir=/src \
-#   crystal:latest-alpine "$@"
-
-exec podman exec -i crystal-formatter crystal "$@"

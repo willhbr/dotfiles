@@ -15,9 +15,6 @@ link() {
   ln -fs "$path" "$dest"
 }
 
-# Vim
-link vim ~/.vim
-link vim/vimrc ~/.vimrc
 link editorconfig ~/.editorconfig
 
 # Generic shell
@@ -44,15 +41,10 @@ link git/jjconfig.toml ~/.jjconfig.toml
 # SSH
 link ssh/config ~/.ssh/config
 
-# Pod
-
-link pod/script.yaml ~/.config/pod/script.yaml
-
 # No login motd
 touch ~/.hushlogin
 
-link dircolors ~/.dircolors
+# Yabai
+link yabai/yabairc ~/.yabairc
 
-# Common directories
-mkdir -p ~/Projects
-mkdir -p ~/tmp
+link dircolors ~/.dircolors
