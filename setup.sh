@@ -47,4 +47,13 @@ touch ~/.hushlogin
 # Yabai
 link yabai/yabairc ~/.yabairc
 
+# Configs
+link config ~/.config
+
+# Wezterm
+link wezterm/.wezterm.lua ~/.wezterm.lua
+
+# Vim
+link vim/vimrc ~/.vimrc
+
 link dircolors ~/.dircolors
