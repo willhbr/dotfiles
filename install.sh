@@ -14,7 +14,6 @@ deps=(
   vim
   zsh
   git
-  jj
   # Fast fuzzy search.
   fzf
   # Traverse, query, filter and process json files.
@@ -29,7 +28,7 @@ deps=(
   zoxide
   # Sexy prompt
   starship
-  # Neovim + chad neovim for code editing.
+  # Neovim + chad neovim for code editing
   neovim
 )
 
@@ -47,6 +46,13 @@ pug get zsh github: zsh-users/zsh-syntax-highlighting
 
 # Tmux
 pug get tmux github: catppuccin/tmux
+pug get tmux github: willhbr/vim-tmux-navigator
 
+# Npm
+curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s lts
+sudo npm install -g n
+sudo npm install -g typescript-language-server typescript vscode-htmlservice
+
+echo "Get correct sketchbar font: kvndrsslr/sketchybar-app-font"
 echo "Reccomended Terminal: https://wezfurlong.org/wezterm/index.html"
 echo "Reccomended Tiler: https://github.com/koekeishiya/yabai"

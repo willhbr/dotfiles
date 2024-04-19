@@ -6,7 +6,6 @@ add_newline = true
 
 format = """\
 $directory\
-${custom.jj}\
 $line_break\
 $character"""
 
@@ -19,7 +18,7 @@ style = "bold blue"
 
 [custom.jj]
 command=""" jj log -l 1 | grep '│' | cut -c4- """
-when=""" [[ `git rev-parse --is-inside-work-tree 2>&1` = "true" ]] """ 
+when=""" [[ `git rev-parse --is-inside-work-tree 2>&1` = "true" ]] """
 style = "fg:7"
 format = "[ @ ($output) ]($style)"
 

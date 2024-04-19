@@ -8,6 +8,15 @@ unset funcpath
 source ~/.shell/alias.sh
 source ~/.zsh/completions.zsh
 
+# Update outdated packages after running brew commands.
+function brew() {
+  command brew "$@"
+
+  if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
+    sketchybar --trigger brew_update
+  fi
+}
+
 # ALIASES
 for mode in +x -x +r -r +w -r 777 755; do
   eval "$mode() { chmod $mode \"\$@\" }"
