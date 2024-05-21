@@ -17,7 +17,8 @@ link() {
 
 # Kitty
 
-link kitty/kitty.conf ~/.config/kitty/kitty.conf
+link terminal/kitty.conf ~/.config/kitty/kitty.conf
+link terminal/wezterm.lua ~/.wezterm.lua
 
 # Vim
 link vim ~/.vim
