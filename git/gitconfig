@@ -8,6 +8,9 @@
 [pull]
 	rebase = true
 [alias]
+  jj = "!jj git init --git-repo=."
+  setup = "!git init && git jj"
+
 	mainbranch = "!git branch -r | sed -nr 's/^\\s*origin\\/(main|master)$/\\1/p' | head -n 1"
 	sync = "!git pull origin $(git mainbranch) --rebase"
 	update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
