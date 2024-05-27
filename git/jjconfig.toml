@@ -11,15 +11,23 @@ diff-editor = ":builtin"
 'format_short_id(id)' = 'id.shortest()'
 'format_short_signature(signature)' = 'signature.name()'
 
+[revsets]
+log = '@ | ancestors((trunk()..(visible_heads() & mine())), 2) | trunk()'
+
+[revset-aliases]
+# I can probably get rid of this eventually
+'mine()' = 'author("william.hamish@gmail.com") | author("will@willhbr.net")'
+'immutable_heads()' = '(trunk() | tags()) ~ mine()'
+
 [git]
-push-branch-prefix = "willhbr/push-"
+push-branch-prefix = 'willhbr/push-'
 
 [aliases]
 ig = ['git', 'init', '--git-repo=.']
 
 setmain = ["branch", "set", "main", "-r", "@-"]
 sync = ['git', 'fetch', '--all-remotes']
-evolve = ['rebase', '--skip-empty', '-d', 'main']
+evolve = ['rebase', '--skip-empty', '-d', 'trunk()']
 
 xl = ['log', '-r', 'all()']
 pl = ['obslog', '-p']

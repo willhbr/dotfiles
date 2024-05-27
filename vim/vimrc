@@ -64,7 +64,7 @@ let b:comment_leader = '# '
 augroup commenting_blocks_of_code
   autocmd!
   autocmd filetype c,cpp,java,scala let b:comment_leader = '// '
-  autocmd filetype swift            let b:comment_leader = '// '
+  autocmd filetype swift,rust       let b:comment_leader = '// '
   autocmd filetype sh,ruby,python   let b:comment_leader = '# '
   autocmd filetype crystal          let b:comment_leader = '# '
   autocmd filetype conf,fstab       let b:comment_leader = '# '
@@ -120,9 +120,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
 let g:syntastic_enable_signs = 0
 
-" Always autoformat Crystal files
-
 let g:crystal_auto_format = 1
+let g:rustfmt_autosave = 1
 
 " Load config for this device
 let __filepath = expand("~/.vimrc-local")
