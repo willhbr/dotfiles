@@ -3,7 +3,7 @@
 set -e
 
 if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
-  sudo apt install fzf tmux vim zsh git tree figlet jq exa ripgrep podman
+  sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman
 fi
 
 if ! [[ "$SHELL" = *zsh ]]; then

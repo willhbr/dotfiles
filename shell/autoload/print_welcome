@@ -55,4 +55,8 @@ else
 fi
 if [ -e /proc/uptime ]; then pretty_uptime --single; fi
 echo -e "\033[0m"
+if [ -f ~/.backup-time ]; then
+  date '+Last backup: %b %d, %Y' -d "@$(stat -c %Y ~/.last-backup-time)"
+  echo
+fi
 mx

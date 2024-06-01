@@ -7,17 +7,16 @@ default-command = "status"
 diff-editor = ":builtin"
 
 [template-aliases]
-'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_timestamp(ts)' = 'ts.ago()'
 'format_short_id(id)' = 'id.shortest()'
 'format_short_signature(signature)' = 'signature.name()'
 
 [revsets]
-log = '@ | ancestors((trunk()..(visible_heads() & mine())), 2) | trunk()'
+log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
 [revset-aliases]
 # I can probably get rid of this eventually
 'mine()' = 'author("william.hamish@gmail.com") | author("will@willhbr.net")'
-'immutable_heads()' = '(trunk() | tags()) ~ mine()'
 
 [git]
 push-branch-prefix = 'willhbr/push-'

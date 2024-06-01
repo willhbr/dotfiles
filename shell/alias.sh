@@ -36,7 +36,7 @@ else
   eval "$(dircolors -b ~/.dircolors)"
 fi
 
-if which exa > /dev/null 2>&1; then
-  alias ls=exa
+if which eza > /dev/null 2>&1; then
+  alias ls=eza
 fi
 
