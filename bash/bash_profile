@@ -16,6 +16,12 @@ function __prompt() {
 }
 export PROMPT_COMMAND=__prompt
 
+set -o vi
+bind '"jk":vi-movement-mode'
+bind '"Jk":vi-movement-mode'
+bind '"jK":vi-movement-mode'
+bind '"JK":vi-movement-mode'
+
 # Load config specific to this device
 __local_file="$HOME/.bash_profile-local"
 if [ -e $__local_file ]; then

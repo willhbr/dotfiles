@@ -83,3 +83,12 @@ repls:
     run_flags:
       workdir: /src
       entrypoint: ['node']
+  elixir:
+    name: elixir
+    image: docker.io/library/elixir:alpine
+    autoremove: true
+    bind_mounts:
+      .: /src
+    run_flags:
+      workdir: /src
+      entrypoint: ['iex']
