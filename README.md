@@ -1,6 +1,6 @@
 # Will's Config
 
-It's well-tuned.
+It's will-tuned.
 
 ```shell
 $ ./install.sh
