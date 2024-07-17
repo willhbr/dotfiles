@@ -1,10 +1,10 @@
 [user]
-name = "Will Richardson"
-email = "will@willhbr.net"
+name = 'Will Richardson'
+email = 'will@willhbr.net'
 
 [ui]
-default-command = "status"
-diff-editor = ":builtin"
+default-command = 'status'
+diff-editor = ':builtin'
 
 [template-aliases]
 'format_timestamp(ts)' = 'ts.ago()'
@@ -24,9 +24,9 @@ push-branch-prefix = 'willhbr/push-'
 [aliases]
 ig = ['git', 'init', '--git-repo=.']
 
-setmain = ["branch", "set", "main", "-r", "@-"]
+setmain = ['branch', 'set', 'main', '-r', '@-']
 sync = ['git', 'fetch', '--all-remotes']
-evolve = ['rebase', '--skip-empty', '-d', 'trunk()']
+evolve = ['rebase', '--skip-emptied', '-d', 'trunk()']
 
 xl = ['log', '-r', 'all()']
 pl = ['obslog', '-p']

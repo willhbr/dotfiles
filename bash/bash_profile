@@ -23,10 +23,11 @@ bind '"jK":vi-movement-mode'
 bind '"JK":vi-movement-mode'
 
 # Load config specific to this device
-__local_file="$HOME/.bash_profile-local"
-if [ -e $__local_file ]; then
-  source $__local_file
+local_file="$HOME/.bash_profile-local"
+if [ -e "$local_file" ]; then
+  source "$local_file"
 fi
+unset local_file
 
 if [ -z "$TMUX" ] && [ -n "$SSH_CLIENT" ]; then
   case $- in
