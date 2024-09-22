@@ -32,7 +32,6 @@ xl = ['log', '-r', 'all()']
 pl = ['obslog', '-p']
 
 cl = ['git', 'push', '-c', '@-']
-push = ['git', 'push', '-b', 'glob:willhbr/push-*']
-upload = ['git', 'push', '--all']
+push = ['git', 'push', '--all']
 
 configure = ['config', 'edit', '--repo']

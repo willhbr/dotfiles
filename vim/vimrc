@@ -60,6 +60,8 @@ nnoremap H ^
 vnoremap L $
 vnoremap H ^
 
+nnoremap K @q
+
 let b:comment_leader = '# '
 augroup commenting_blocks_of_code
   autocmd!

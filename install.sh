@@ -2,9 +2,42 @@
 
 set -e
 
-if [ "$1" = apt ] && [ ! "$(uname)" = Darwin ]; then
-  sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman
+confirm() {
+  local msg="$1"
+  echo -n "$msg [y/N] "
+  shift
+  read -r confirmation
+  if [ "$confirmation" = y ]; then
+    "$@"
+  fi
+}
+
+install_jj() {
+  local arch=x86_64
+  local os=linux
+  if [ "$(uname)" = Darwin ]; then
+    arch=aarch64
+    os=darwin
+  fi
+  local download_url="$( \
+    curl https://api.github.com/repos/martinvonz/jj/releases | \
+    jq -r ".[0].assets | .[] | select(.name | contains(\"$arch\")) | select(.name | contains(\"$os\")) | .browser_download_url")"
+
+  echo "Downloading JJ from $download_url"
+  local tmpdir="$(mktemp -d)"
+  curl -Lo "$tmpdir/jj.tar.gz" "$download_url"
+  tar -xzf "$tmpdir/jj.tar.gz" -C "$tmpdir"
+  mv "$tmpdir/jj" ~/.local/bin/jj
+  echo "Installed JJ: $(jj --version)"
+  rm -fr "$tmpdir"
+}
+
+if [ ! "$(uname)" = Darwin ]; then
+  confirm 'install packages?' \
+    sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman
 fi
+confirm 'install jj?' \
+  install_jj
 
 if ! [[ "$SHELL" = *zsh ]]; then
   chsh -s "$(which zsh)"
