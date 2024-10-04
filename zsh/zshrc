@@ -9,6 +9,7 @@ source ~/.shell/alias.sh
 source ~/.zsh/completions.zsh
 
 # ALIASES
+alias curl='noglob curl'
 for mode in +x -x +r -r +w -r 777 755; do
   eval "$mode() { chmod $mode \"\$@\" }"
 done
@@ -27,6 +28,7 @@ for dots in {1..10}; do
   short="${short}."
   long="$long/.."
 done
+
 
 # Prompt
 setopt prompt_subst

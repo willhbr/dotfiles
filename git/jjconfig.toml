@@ -6,25 +6,30 @@ email = 'will@willhbr.net'
 default-command = 'status'
 diff-editor = ':builtin'
 
+[colors]
+'working_copy author' = 'bright white'
+'author' = 'white'
+
 [template-aliases]
-'format_timestamp(ts)' = 'ts.ago()'
+'format_timestamp(ts)' = '''
+if(
+  ts.after("1 week ago"),
+  ts.ago(),
+  ts.format("%b %d, %Y %H:%M"))
+'''
 'format_short_id(id)' = 'id.shortest()'
 'format_short_signature(signature)' = 'signature.name()'
 
 [revsets]
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
-[revset-aliases]
-# I can probably get rid of this eventually
-'mine()' = 'author("william.hamish@gmail.com") | author("will@willhbr.net")'
-
 [git]
-push-branch-prefix = 'willhbr/push-'
+push-bookmark-prefix = 'willhbr/push-'
 
 [aliases]
 ig = ['git', 'init', '--git-repo=.']
 
-setmain = ['branch', 'set', 'main', '-r', '@-']
+setmain = ['bookmark', 'set', 'main', '-r', '@-']
 sync = ['git', 'fetch', '--all-remotes']
 evolve = ['rebase', '--skip-emptied', '-d', 'trunk()']
 
@@ -35,3 +40,6 @@ cl = ['git', 'push', '-c', '@-']
 push = ['git', 'push', '--all']
 
 configure = ['config', 'edit', '--repo']
+
+'..' = ['edit', '-r', '@-']
+',,' = ['edit', '-r', '@+']
