@@ -33,6 +33,7 @@ done
 # Prompt
 setopt prompt_subst
 PROMPT=$'%(?.%F{$HOST_COLOR}.%F{red})||>%f\U00A0'
+PS2=$'%F{$HOST_COLOR}<||%f '
 
 # History
 setopt EXTENDED_HISTORY

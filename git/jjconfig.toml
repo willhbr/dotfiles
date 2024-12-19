@@ -23,6 +23,9 @@ if(
 [revsets]
 log = '@ | ancestors(trunk()..(visible_heads() & mine()), 2) | trunk()'
 
+[revset-aliases]
+stragglers = '(visible_heads() & mine()) ~ trunk()'
+
 [git]
 push-bookmark-prefix = 'willhbr/push-'
 
@@ -32,6 +35,7 @@ ig = ['git', 'init', '--git-repo=.']
 setmain = ['bookmark', 'set', 'main', '-r', '@-']
 sync = ['git', 'fetch', '--all-remotes']
 evolve = ['rebase', '--skip-emptied', '-d', 'trunk()']
+pullup = ['evolve', '-s', 'all:stragglers']
 
 xl = ['log', '-r', 'all()']
 pl = ['obslog', '-p']
@@ -43,3 +47,4 @@ configure = ['config', 'edit', '--repo']
 
 '..' = ['edit', '-r', '@-']
 ',,' = ['edit', '-r', '@+']
+

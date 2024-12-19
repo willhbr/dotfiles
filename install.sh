@@ -34,7 +34,7 @@ install_jj() {
 
 if [ ! "$(uname)" = Darwin ]; then
   confirm 'install packages?' \
-    sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman
+    sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman ruby
 fi
 confirm 'install jj?' \
   install_jj
