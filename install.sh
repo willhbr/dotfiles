@@ -20,7 +20,7 @@ install_jj() {
     os=darwin
   fi
   local download_url="$( \
-    curl https://api.github.com/repos/martinvonz/jj/releases | \
+    curl https://api.github.com/repos/jj-vcs/jj/releases | \
     jq -r ".[0].assets | .[] | select(.name | contains(\"$arch\")) | select(.name | contains(\"$os\")) | .browser_download_url")"
 
   echo "Downloading JJ from $download_url"

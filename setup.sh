@@ -15,10 +15,13 @@ link() {
   ln -fs "$path" "$dest"
 }
 
-# Kitty
+# Terminals
 
 link terminal/kitty.conf ~/.config/kitty/kitty.conf
 link terminal/wezterm.lua ~/.wezterm.lua
+if [ -d ~/Library ]; then
+  link terminal/ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/config
+fi
 
 # Vim
 link vim ~/.vim

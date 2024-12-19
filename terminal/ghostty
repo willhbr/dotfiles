@@ -1,0 +1,12 @@
+cursor-style = "block"
+cursor-style-blink = false
+
+shell-integration = none
+term = xterm-256color
+
+background = "#2b2b2b"
+foreground = "#e7e7e7"
+
+macos-option-as-alt = true
+macos-icon = custom-style
+macos-icon-frame = "beige"
