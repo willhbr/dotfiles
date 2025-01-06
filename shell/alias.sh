@@ -45,7 +45,7 @@ else
     else
       printf "\033]52;c;%s\007" "$(base64 | tr -d '\n')"
     fi
-    [ -n "$TMUX" ] && tmux set set-clipboard off
+    [ -n "$TMUX" ] && tmux set set-clipboard external
   }
   alias ls="ls --color=auto"
   alias grep="grep --color=auto"

@@ -1,3 +1,5 @@
+font-size = 12
+
 cursor-style = "block"
 cursor-style-blink = false
 
@@ -8,5 +10,6 @@ background = "#2b2b2b"
 foreground = "#e7e7e7"
 
 macos-option-as-alt = true
-macos-icon = custom-style
-macos-icon-frame = "beige"
+
+macos-icon = "xray"
+clipboard-read = "deny"
