@@ -70,7 +70,3 @@ complete-or-list() {
 }
 zle -N complete-or-list
 bindkey '^I' complete-or-list
-
-if is_defined jj; then
-  source <(jj util completion zsh)
-fi

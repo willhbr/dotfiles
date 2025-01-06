@@ -32,18 +32,18 @@ if tmux has -t "$name" 2> /dev/null; then
   if [ "$window_count" = 1 ]; then
     tmux new-window -d "tmux wait-for '$wait_for'"
   fi
-  tmux move-window -b -t "$name:{start}"
-  tmux switch -t "$name"
+  tmux move-window -b -t "$name:{start}" \; \
+    switch -t "$name" \; \
+    wait-for -S "$wait_for"
   echo "switched to: $name"
-  tmux wait-for -S "$wait_for"
 else
   if [ "$window_count" = 1 ]; then
     tmux rename-session "$name"
     echo "renamed to: $name"
   else
-    tmux new -s "$name" -d "tmux wait-for '$wait_for'"
-    tmux move-window -b -t "$name:{start}"
-    tmux switch -t "$name"
+    tmux new -s "$name" -d "tmux wait-for '$wait_for'" \; \
+      move-window -b -t "$name:{start}" \; \
+      switch -t "$name"
     echo "new session: $name"
   fi
   tmux wait-for -S "$wait_for"

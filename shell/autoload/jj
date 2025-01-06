@@ -1,0 +1,10 @@
+if [ -z "$JJ_LOADED" ]; then
+  if [ -n "$ZSH_NAME" ]; then
+    source <(command jj util completion zsh)
+  else
+    source <(command jj util completion bash)
+  fi
+  JJ_LOADED=true
+fi
+
+command jj "$@"
