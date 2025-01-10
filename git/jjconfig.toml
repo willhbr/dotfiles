@@ -48,3 +48,4 @@ configure = ['config', 'edit', '--repo']
 '..' = ['edit', '-r', '@-']
 ',,' = ['edit', '-r', '@+']
 
+blame = ['file', 'annotate']

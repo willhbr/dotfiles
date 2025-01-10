@@ -32,10 +32,17 @@ install_jj() {
   rm -fr "$tmpdir"
 }
 
-if [ ! "$(uname)" = Darwin ]; then
-  confirm 'install packages?' \
-    sudo apt install fzf tmux vim zsh git tree figlet jq eza ripgrep podman ruby
-fi
+install_packages() {
+  packages='fzf tmux vim zsh git tree figlet jq eza ripgrep podman ruby'
+  if which apt; then
+    sudo apt install $packages
+  elif which apk; then
+    apk add $packages jujutsu
+  fi
+}
+
+confirm 'install packages?' \
+  install_packages
 confirm 'install jj?' \
   install_jj
 
@@ -57,7 +64,7 @@ pug get zsh github: zsh-users/zsh-autosuggestions
 pug get zsh github: zsh-users/zsh-syntax-highlighting
 
 # Vim Plugins
-pug get vim github: avm99963/vim-jjdescription
+
 pug get vim github: ctrlpvim/ctrlp.vim
 pug get vim github: editorconfig/editorconfig-vim
 pug get vim github: ervandew/supertab
@@ -65,15 +72,17 @@ pug get vim github: itchyny/lightline.vim
 pug get vim github: jiangmiao/auto-pairs
 pug get vim github: lfv89/vim-interestingwords
 pug get vim github: mgee/lightline-bufferline
-pug get vim github: rhysd/vim-crystal
-pug get vim github: rust-lang/rust.vim
 pug get vim github: vim-syntastic/syntastic
 
 # Vim Syntax files
 
-pug get vim github: udalov/kotlin-vim
-pug get vim github: keith/swift.vim
+pug get vim github: avm99963/vim-jjdescription
 pug get vim github: elixir-editors/vim-elixir
+pug get vim github: isobit/vim-caddyfile
+pug get vim github: keith/swift.vim
+pug get vim github: rhysd/vim-crystal
+pug get vim github: rust-lang/rust.vim
+pug get vim github: udalov/kotlin-vim
 
 # Vim/ tmux navigation
 

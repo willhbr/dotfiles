@@ -55,6 +55,8 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'Jk' vi-cmd-mode
 bindkey -M viins 'JK' vi-cmd-mode
 bindkey -M viins 'jK' vi-cmd-mode
+bindkey -M vicmd H beginning-of-line
+bindkey -M vicmd L end-of-line
 # Allow deleting into non-inserted text
 bindkey "^?" backward-delete-char
 # I do "jkk" to run the prev command, and if I miss the j I want it to still work

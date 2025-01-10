@@ -49,9 +49,6 @@ link git/gitconfig ~/.gitconfig
 link git/global-gitignore ~/.global-gitignore
 link git/jjconfig.toml ~/.jjconfig.toml
 
-# SSH
-link ssh/config ~/.ssh/config
-
 # Pod
 
 link pod/script.yaml ~/.config/pod/script.yaml
