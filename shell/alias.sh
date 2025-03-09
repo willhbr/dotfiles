@@ -3,9 +3,6 @@ alias f="$EDITOR"
 alias :e="$EDITOR"
 alias :vsp='tmux split-window -h'
 alias :sp='tmux split-window -v'
-alias paste='tmux show-buffer'
-alias copyf='tmux load-buffer'
-alias copy='tmux set-buffer'
 
 # Python
 alias python="python3"
@@ -30,7 +27,26 @@ if [ -d /Users ]; then
   export CLICOLOR=1
   alias ls="ls -G"
   alias finder="open ."
+  copy() {
+    if [ -n "$1" ]; then
+      pbcopy < "$1"
+    else
+      pbcopy
+    fi
+  }
 else
+  alias paste='tmux show-buffer'
+
+  copy() {
+    # Do this to keep the normal tmux clipboard separate from system clipboard
+    [ -n "$TMUX" ] && tmux set set-clipboard on
+    if [ -n "$1" ]; then
+      printf "\033]52;c;%s\007" "$(base64 < "$1" | tr -d '\n')"
+    else
+      printf "\033]52;c;%s\007" "$(base64 | tr -d '\n')"
+    fi
+    [ -n "$TMUX" ] && tmux set set-clipboard off
+  }
   alias ls="ls --color=auto"
   alias grep="grep --color=auto"
   eval "$(dircolors -b ~/.dircolors)"
